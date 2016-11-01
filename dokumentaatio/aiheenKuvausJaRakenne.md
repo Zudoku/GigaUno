@@ -6,7 +6,7 @@ Pelin säännöt ovat suoraan uno korttipelistä: Pelaaja joka saavuttaa pistera
 
 Kun pelaajalla on vain yksi kortti, "huutaa" hän UNO! jolloin muut pelaajat saavat varoituksen että olet voittamassa. Jos et muista huutaa UNO ja vuoro siirtyy muulle pelaajalle ja joku muu huomaa virheesi, joudut nostamaan 2 korttia. 
 
-Eriä pelataan kunnes jokin pelaaja on voittaja. Kun pelaajalla on vuoro, hän saa laittaa pöytään kortin jossa on sama väri, numero tai kuva kuin pöydän kortissa. Samalla vuorolla on mahdollista pelata monta korttia. Jos et voi tai halua laittaa korttia, on mahdollista myös nostaa yksi kortti, jolloin vuoro voi siirtyä seuraavalle. Pelissä on myö erikoiskortteja jotka sekoittavat pelin kulkua.
+Eriä pelataan kunnes jokin pelaaja on voittaja. Kun pelaajalla on vuoro, hän saa laittaa pöytään kortin jossa on sama väri, numero tai kuva kuin pöydän kortissa. Samalla vuorolla on mahdollista pelata monta korttia. Jos et voi tai halua laittaa korttia, on mahdollista myös nostaa yksi kortti, jolloin vuoro voi siirtyä seuraavalle. Pelissä on myös erikoiskortteja jotka sekoittavat pelin kulkua.
 
 ## Käyttäjät:
 pelaajat (monta samaan aikaan)
@@ -14,7 +14,7 @@ pelaajat (monta samaan aikaan)
 ## Pelaajan toiminnot:
 
 - Pelin aloitus
--- Pelin aloituksessa valitaan kuinka monta pelaajaa on pelaamassa ja muut mahdolliset pelin säännöt, esim aikaraja jos sellaisen haluaa
+	- Pelin aloituksessa valitaan kuinka monta pelaajaa on pelaamassa ja muut mahdolliset pelin säännöt, esim aikaraja jos sellaisen haluaa
 - Pelin pelaaminen vuorotellen: yksi pelaaja pelaa peliä kerrallaan ja oman vuoron päätteeksi päästää toisen pelaajan pelaamaan 
 
 ## Erän kulku
