@@ -28,7 +28,7 @@ public class Pelialusta {
     
     private boolean kaanteinenKierros; //Jos true, pelin suunta on päinvastainen
     
-    private int nykyinenPelaajaIndeksi;
+    private int nykyinenPelaajaIndeksi; //Indeksi joka kertoo kenen pelaajan vuoro on nyt
     
     private KorttiPakka nostoPakka;
     private KorttiPakka laittoPakka;
