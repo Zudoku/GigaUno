@@ -8,4 +8,5 @@ Peli on tehty Javalla ja siihen tulee yksinkertainen käyttöliittymä Swingill�
 ## Dokumentaatio
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
+
 [Tuntipäiväkirja](dokumentaatio/tuntikirjanpito.md)
