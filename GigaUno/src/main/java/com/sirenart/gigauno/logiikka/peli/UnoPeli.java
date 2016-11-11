@@ -14,12 +14,12 @@ import java.util.List;
  * @author arska
  */
 public class UnoPeli {
-    
+
     private boolean pelikesken = false;
-    
+
     private boolean pelaajatLisatty;
     private PeliAsetukset peliAsetukset;
-    
+
     private List<Pelaaja> pelaajat;
     private PeliAlusta nykyinenEra;
 
@@ -27,17 +27,17 @@ public class UnoPeli {
         this.pelaajatLisatty = false;
         this.peliAsetukset = null;
     }
-    
-    public boolean paataPelaajienLisays(){
-        if(pelaajat.size() < 2) {
+
+    public boolean paataPelaajienLisays() {
+        if (pelaajat.size() < 2) {
             return false;
         }
         this.pelaajatLisatty = true;
         return true;
     }
-    
-    public boolean lisaaPelaaja(Pelaaja pelaaja){
-        if(pelaajatLisatty){
+
+    public boolean lisaaPelaaja(Pelaaja pelaaja) {
+        if (pelaajatLisatty) {
             return false;
         }
         pelaajat.add(pelaaja);
@@ -48,16 +48,11 @@ public class UnoPeli {
     public void setPeliAsetukset(PeliAsetukset peliAsetukset) {
         this.peliAsetukset = peliAsetukset;
     }
-    
-    
-    
-    public void aloitaPeli(){
-        if(pelaajatLisatty && peliAsetukset != null){
+
+    public void aloitaPeli() {
+        if (pelaajatLisatty && peliAsetukset != null) {
             pelikesken = true;
         }
     }
-    
-    
-    
-    
+
 }

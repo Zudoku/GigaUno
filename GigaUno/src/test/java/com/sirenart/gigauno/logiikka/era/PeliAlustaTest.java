@@ -76,7 +76,7 @@ public class PeliAlustaTest {
             //Varmistetaan ettei ole tyhjä
             assertFalse(pelaaja.getEraTiedot().getKortit().getKortit().isEmpty());
             //Varmistetaan että on tietty määrä kortteja
-            assertTrue(pelaaja.getEraTiedot().getKortit().getKortit().size() == PeliAlusta.aloitusKorttiMaara);
+            assertTrue(pelaaja.getEraTiedot().getKortit().getKortit().size() == PeliAlusta.ALOITUS_KORTTI_MAARA);
         }
     }
 

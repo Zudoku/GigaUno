@@ -15,7 +15,7 @@ import java.util.Random;
  * @author arska
  */
 public class KorttiPakka {
-    
+
     private List<Kortti> kortit;
 
     public KorttiPakka(List<Kortti> kortit) {
@@ -25,33 +25,33 @@ public class KorttiPakka {
     public KorttiPakka() {
         kortit = new ArrayList<>();
     }
-    
-    public Kortti nosta(){
-        if(kortit.size() > 0){
-            Kortti nostettava = kortit.get(kortit.size() -1);
-            kortit.remove(kortit.size() -1);
+
+    public Kortti nosta() {
+        if (kortit.size() > 0) {
+            Kortti nostettava = kortit.get(kortit.size() - 1);
+            kortit.remove(kortit.size() - 1);
             return nostettava;
         }
         return null;
     }
-    
-    public Kortti ylin(){
-        if(kortit.size() > 0){
-            Kortti ylinKortti = kortit.get(kortit.size() -1);
+
+    public Kortti ylin() {
+        if (kortit.size() > 0) {
+            Kortti ylinKortti = kortit.get(kortit.size() - 1);
             return ylinKortti;
         }
         return null;
     }
-    
-    public void lisaa(Kortti kortti){
+
+    public void lisaa(Kortti kortti) {
         kortit.add(kortti);
     }
-    
-    public int jaljella(){
+
+    public int jaljella() {
         return kortit.size();
     }
-    
-    public void sekoita(){
+
+    public void sekoita() {
         long seed = System.nanoTime();
         Collections.shuffle(kortit, new Random(seed));
     }
@@ -59,8 +59,5 @@ public class KorttiPakka {
     public List<Kortti> getKortit() {
         return kortit;
     }
-    
-    
-    
-    
+
 }

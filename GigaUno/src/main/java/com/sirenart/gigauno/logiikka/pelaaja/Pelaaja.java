@@ -10,14 +10,15 @@ package com.sirenart.gigauno.logiikka.pelaaja;
  * @author arska
  */
 public class Pelaaja {
+
     private String nimimerkki; // Pelaajan nimimerkki
-    private int pisteitä; //Kuinka monta pistettä pelaajalla on
+    private int pisteita; //Kuinka monta pistettä pelaajalla on
     private int eraVoittoja; // Kuinka monta erää pelaaja on voittanut
     private EraTiedot eraTiedot; //Pelaajan käynnissä olevan erän tiedot
 
     public Pelaaja(String nimimerkki) {
         this.nimimerkki = nimimerkki;
-        this.pisteitä = 0;
+        this.pisteita = 0;
         this.eraVoittoja = 0;
     }
 
@@ -29,16 +30,16 @@ public class Pelaaja {
         return nimimerkki;
     }
 
-    public int getPisteitä() {
-        return pisteitä;
+    public int getPisteita() {
+        return pisteita;
     }
 
     public void setEraVoittoja(int eraVoittoja) {
         this.eraVoittoja = eraVoittoja;
     }
 
-    public void setPisteitä(int pisteitä) {
-        this.pisteitä = pisteitä;
+    public void setPisteita(int pisteita) {
+        this.pisteita = pisteita;
     }
 
     public void setEraTiedot(EraTiedot eraTiedot) {
@@ -48,10 +49,5 @@ public class Pelaaja {
     public EraTiedot getEraTiedot() {
         return eraTiedot;
     }
-    
-    
-    
-    
-    
-    
+
 }

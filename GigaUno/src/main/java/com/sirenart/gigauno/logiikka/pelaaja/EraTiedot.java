@@ -12,9 +12,11 @@ import com.sirenart.gigauno.logiikka.kortit.KorttiKasi;
  * @author arska
  */
 public class EraTiedot {
+
     private int pelaajaIndeksi; //Pelaajan paikka pelilaudalla
     private boolean unoHuudettu; // Onko pelaaja huutanut tällä kierroksella uno
     private KorttiKasi kortit;
+    
 
     public EraTiedot(int pelaajaIndeksi, KorttiKasi kortit) {
         this.pelaajaIndeksi = pelaajaIndeksi;
@@ -37,14 +39,9 @@ public class EraTiedot {
     public KorttiKasi getKortit() {
         return kortit;
     }
-    
-    public boolean onkoPelaajallaUnoTila(){
+
+    public boolean onkoPelaajallaUnoTila() {
         return (kortit.getKortit().size() == 1);
     }
-    
-    
-    
-    
-    
-    
+
 }

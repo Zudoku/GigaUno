@@ -13,19 +13,19 @@ import java.util.List;
  * @author arska
  */
 public class KorttiKasi {
-    
+
     private List<Kortti> kortit;
 
     public KorttiKasi() {
         kortit = new ArrayList<>();
     }
-    
-    public void lisaa(Kortti kortti){
+
+    public void lisaa(Kortti kortti) {
         kortit.add(kortti);
     }
-    
-    public Kortti poista(int index){
-        if(kortit.size() > 0 && kortit.size() > index){
+
+    public Kortti poista(int index) {
+        if (kortit.size() > 0 && kortit.size() > index) {
             Kortti poistettu = kortit.get(index);
             kortit.remove(index);
             return poistettu;
@@ -36,7 +36,5 @@ public class KorttiKasi {
     public List<Kortti> getKortit() {
         return kortit;
     }
-    
-    
-    
+
 }
