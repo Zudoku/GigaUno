@@ -6,7 +6,9 @@
 package com.sirenart.gigauno.logiikka.kortit;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -41,13 +43,23 @@ public class KorttiPakka {
         return null;
     }
     
+    public void lisaa(Kortti kortti){
+        kortit.add(kortti);
+    }
+    
     public int jaljella(){
         return kortit.size();
     }
     
     public void sekoita(){
-        
+        long seed = System.nanoTime();
+        Collections.shuffle(kortit, new Random(seed));
     }
+
+    public List<Kortti> getKortit() {
+        return kortit;
+    }
+    
     
     
     

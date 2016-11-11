@@ -5,7 +5,7 @@
  */
 package com.sirenart.gigauno.logiikka.peli;
 
-import com.sirenart.gigauno.logiikka.era.Pelialusta;
+import com.sirenart.gigauno.logiikka.era.PeliAlusta;
 import com.sirenart.gigauno.logiikka.pelaaja.Pelaaja;
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class UnoPeli {
     private PeliAsetukset peliAsetukset;
     
     private List<Pelaaja> pelaajat;
-    private Pelialusta nykyinenEra;
+    private PeliAlusta nykyinenEra;
 
     public UnoPeli() {
         this.pelaajatLisatty = false;

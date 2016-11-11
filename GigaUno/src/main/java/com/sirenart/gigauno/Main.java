@@ -5,10 +5,19 @@
  */
 package com.sirenart.gigauno;
 
+import com.sirenart.gigauno.logiikka.kortit.KorttiTyyppi;
+import com.sirenart.gigauno.logiikka.kortit.KorttiVari;
+
 /**
  *
  * @author arska
  */
 public class Main {
+
+    public static void main(String[] args) {
+        
+    }
+    
+    
     
 }

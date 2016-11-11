@@ -5,7 +5,7 @@
  */
 package com.sirenart.gigauno.logiikka.peli;
 
-import com.sirenart.gigauno.logiikka.kortit.Kortti;
+import com.sirenart.gigauno.logiikka.kortit.KorttiTyyppi;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +14,7 @@ import java.util.Map;
  * @author arska
  */
 public class PeliAsetukset {
-    private Map<Kortti, Boolean> erikoiskorttiValinnat;
+    private Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat;
     
     private int korttiKerroin;
     
@@ -22,7 +22,7 @@ public class PeliAsetukset {
     
     private int voittoRaja;
 
-    public PeliAsetukset(Map<Kortti, Boolean> erikoiskorttiValinnat, int korttiKerroin, long aikaRajoitus, int voittoRaja) {
+    public PeliAsetukset(Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat, int korttiKerroin, long aikaRajoitus, int voittoRaja) {
         this.erikoiskorttiValinnat = erikoiskorttiValinnat;
         this.korttiKerroin = korttiKerroin;
         this.aikaRajoitus = aikaRajoitus;
@@ -33,7 +33,7 @@ public class PeliAsetukset {
         return aikaRajoitus;
     }
 
-    public Map<Kortti, Boolean> getErikoiskorttiValinnat() {
+    public Map<KorttiTyyppi, Boolean> getErikoiskorttiValinnat() {
         return erikoiskorttiValinnat;
     }
 
