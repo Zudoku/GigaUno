@@ -71,7 +71,7 @@ Villikortti + nosta 4 | 15
 
 ## Luokkakuvio
 
-![Pelin logiikan rakenne](/luokkakuva.png "Pelin logiikan rakenne")
+![Pelin logiikan rakenne](luokkakuva.png "Pelin logiikan rakenne")
 
 
 
