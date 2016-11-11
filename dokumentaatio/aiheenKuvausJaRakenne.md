@@ -69,7 +69,7 @@ Ohituskortti | 11
 Villikortti | 11
 Villikortti + nosta 4 | 15
 
-## Luokkakuvio
+## Luokkakaavio
 
 ![Pelin logiikan rakenne](luokkakuva.png "Pelin logiikan rakenne")
 
