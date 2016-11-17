@@ -7,6 +7,7 @@ package com.sirenart.gigauno.logiikka.peli;
 
 import com.sirenart.gigauno.logiikka.era.PeliAlusta;
 import com.sirenart.gigauno.logiikka.pelaaja.Pelaaja;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class UnoPeli {
     public UnoPeli() {
         this.pelaajatLisatty = false;
         this.peliAsetukset = null;
+        this.pelaajat = new ArrayList<>();
     }
 
     public boolean paataPelaajienLisays() {
@@ -54,5 +56,11 @@ public class UnoPeli {
             pelikesken = true;
         }
     }
+
+    public List<Pelaaja> getPelaajat() {
+        return pelaajat;
+    }
+    
+    
 
 }

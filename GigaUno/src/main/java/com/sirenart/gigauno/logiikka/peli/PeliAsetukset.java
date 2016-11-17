@@ -6,7 +6,6 @@
 package com.sirenart.gigauno.logiikka.peli;
 
 import com.sirenart.gigauno.logiikka.kortit.KorttiTyyppi;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

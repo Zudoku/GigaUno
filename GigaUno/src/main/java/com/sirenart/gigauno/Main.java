@@ -5,8 +5,8 @@
  */
 package com.sirenart.gigauno;
 
-import com.sirenart.gigauno.logiikka.kortit.KorttiTyyppi;
-import com.sirenart.gigauno.logiikka.kortit.KorttiVari;
+
+import com.sirenart.gigauno.gui.PeliRunko;
 
 /**
  *
@@ -15,6 +15,13 @@ import com.sirenart.gigauno.logiikka.kortit.KorttiVari;
 public class Main {
 
     public static void main(String[] args) {
+        
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PeliRunko().setVisible(true);
+            }
+        });
         
     }
     

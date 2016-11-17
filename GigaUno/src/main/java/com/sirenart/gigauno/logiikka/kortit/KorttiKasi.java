@@ -21,7 +21,9 @@ public class KorttiKasi {
     }
 
     public void lisaa(Kortti kortti) {
-        kortit.add(kortti);
+        if(kortti != null){
+            kortit.add(kortti);
+        }
     }
 
     public Kortti poista(int index) {
