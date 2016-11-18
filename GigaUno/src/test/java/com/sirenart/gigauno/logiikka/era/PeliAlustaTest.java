@@ -198,4 +198,6 @@ public class PeliAlustaTest {
         assertEquals(0, alusta.getNykyinenPelaajaIndeksi());
     }
     
+    
+    
 }
