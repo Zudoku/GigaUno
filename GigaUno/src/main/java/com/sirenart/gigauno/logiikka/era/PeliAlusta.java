@@ -53,6 +53,9 @@ public class PeliAlusta {
         this.laittoPakka.lisaa(nostoPakka.nosta());
     }
 
+    /**
+     * Alustaa pelaajat pelin alussa.
+     */
     private void pelaajienAlustus() {
         sekoitaPelaajienJarjestys();
         jaaAloitusKortit();
@@ -118,11 +121,15 @@ public class PeliAlusta {
     public void aloitaEra() {
 
     }
-
+    /**
+     * Palauttaa nykyisen pelaajan
+     */
     public Pelaaja nykyinenPelaaja() {
         return pelaajat.get(nykyinenPelaajaIndeksi);
     }
-
+    /**
+     * Palauttaa seuraavan pelaajan (seuraava pelaaja = kun vuoro vaihtuu)
+     */
     public Pelaaja seuraavaPelaaja() {
         int seuraavaIndeksi = nykyinenPelaajaIndeksi;
         if (kaanteinenKierros) {
@@ -140,7 +147,10 @@ public class PeliAlusta {
         }
         return pelaajat.get(seuraavaIndeksi);
     }
-
+    /**
+     * Nykyinen pelaaja haluaa laittaa kortin.
+     * palauttaa boolean arvon siitä, onnistuiko kortin laitto vai ei.
+     */
     public boolean pelaajaLaittaaKortin(Kortti kortti) {
         if (voikoPelaajaLaittaaKortin(kortti)) {
             laittoPakka.lisaa(kortti);
@@ -153,7 +163,10 @@ public class PeliAlusta {
         }
         return false;
     }
-    
+    /**
+     * Tarkistaa onko nykyinen pelaja voittanut pelin
+     * Jos on, merkitsee erän loppuneeksi ja asettaa voittajan.
+     */
     private void tarkistaVoitto(){
         if(nykyinenPelaaja().getEraTiedot().getKortit().getKortit().isEmpty()){
             if(nykyinenPelaaja().getEraTiedot().isSaaVoittaa()){
@@ -166,7 +179,10 @@ public class PeliAlusta {
             }
         }
     }
-    
+    /**
+     * Kutsutaan kun pelaaja pelaa erikoiskortin. 
+     * Erikoiskorttien effektit implementoidaan tänne.
+     */
     private void pelaajaPelaaErikoisKortin(Kortti kortti){
         switch(kortti.getTyyppi()){
             case HURRIKAANI:
@@ -208,11 +224,19 @@ public class PeliAlusta {
                 break;
         }
     }
-
+    
+    /**
+     * Palauttaa true jos pelaaja voi laittaa parametrina annetun kortin laittopakkaan
+     * @param kortti
+     */
     public boolean voikoPelaajaLaittaaKortin(Kortti kortti) {
         return laittoPakka.voikoLaittaaKortin(kortti);
     }
-
+    /**
+     * Kun pelaaja haluaa nostaa kortin. 
+     * Palauttaa boolean arvon joka kertoo onnistuiko kortin nosto vai ei.
+     * @return 
+     */
     public boolean pelaajaNostaaKortin() {
         Kortti nostettu = nostoPakka.nosta();
         if (nostettu != null) {
@@ -222,7 +246,10 @@ public class PeliAlusta {
         }
         return false;
     }
-
+    /**
+     * Pelaaja yrittää lopettaa vuoron
+     * Palauttaa boolean arvon joka merkitsee sitä, oliko vuoron lopettaminen onnistuminen vai ei
+     */
     public boolean pelaajaLopettaaVuoron() {
         //Tarkistetaan onko pelaaja ottanut kortin pakasta, tai laittanut kortin pakkaan.
         if (pelaajaSaaLopettaaVuoron) {
@@ -240,6 +267,7 @@ public class PeliAlusta {
                 }
             }
             pelaajaSaaLopettaaVuoron = false;
+            //Pidetään uno huuto ajantasalla.
             if(nykyinenPelaaja().getEraTiedot().isUnoHuudettu()){
                 nykyinenPelaaja().getEraTiedot().setUnoHuudettu(false);
                 nykyinenPelaaja().getEraTiedot().setSaaVoittaa(true);
@@ -253,23 +281,35 @@ public class PeliAlusta {
         }
         return false;
     }
-    public void pelaajaHuutaaUno(){
+    /**
+     * Pelaaja haluaa huutaa uno.
+     * palauttaa true jos huuto onnistuu
+     */
+    public boolean pelaajaHuutaaUno(){
         if(nykyinenPelaaja().getEraTiedot().onkoPelaajallaUnoTila()){
             nykyinenPelaaja().getEraTiedot().setUnoHuudettu(true);
+            return true;
         }
+        return false;
     }
     
-    public void pelajaaPaljastaaUnon(Pelaaja pelaaja){
+    /**
+     * Pelaaja yrittää paljastaa unon parametrinä annetulle pelajalle.
+     * Palauttaa true jos palajastus onnistuu.
+     */
+    public boolean pelajaaPaljastaaUnon(Pelaaja pelaaja){
         for(Pelaaja player : pelaajat){
             if(player == pelaaja && pelaaja != nykyinenPelaaja()){
                 if(player.getEraTiedot().onkoPelaajallaUnoTila() || !player.getEraTiedot().isUnoHuudettu()){
                     //Pelaja on palajastanut unon.
                     for(int y = 0 ; y < 2; y++){
                         pelaaja.getEraTiedot().getKortit().lisaa(nostoPakka.nosta());
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
     
     /**
