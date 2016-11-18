@@ -15,17 +15,22 @@ public class EraTiedot {
 
     private int pelaajaIndeksi; //Pelaajan paikka pelilaudalla
     private boolean unoHuudettu; // Onko pelaaja huutanut tällä kierroksella uno
+    private boolean saaVoittaa;
     private KorttiKasi kortit;
     
 
     public EraTiedot(int pelaajaIndeksi, KorttiKasi kortit) {
         this.pelaajaIndeksi = pelaajaIndeksi;
         this.unoHuudettu = false;
+        this.saaVoittaa = false;
         this.kortit = kortit;
     }
 
     public void setUnoHuudettu(boolean unoHuudettu) {
         this.unoHuudettu = unoHuudettu;
+        if(unoHuudettu){
+            saaVoittaa = true;
+        }
     }
 
     public boolean isUnoHuudettu() {
@@ -43,5 +48,15 @@ public class EraTiedot {
     public boolean onkoPelaajallaUnoTila() {
         return (kortit.getKortit().size() == 1);
     }
+
+    public void setSaaVoittaa(boolean saaVoittaa) {
+        this.saaVoittaa = saaVoittaa;
+    }
+
+    public boolean isSaaVoittaa() {
+        return saaVoittaa;
+    }
+    
+    
 
 }

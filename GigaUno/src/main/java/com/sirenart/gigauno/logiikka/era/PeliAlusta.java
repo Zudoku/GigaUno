@@ -156,7 +156,7 @@ public class PeliAlusta {
     
     private void tarkistaVoitto(){
         if(nykyinenPelaaja().getEraTiedot().getKortit().getKortit().isEmpty()){
-            if(nykyinenPelaaja().getEraTiedot().isUnoHuudettu()){
+            if(nykyinenPelaaja().getEraTiedot().isSaaVoittaa()){
                 voittaja = nykyinenPelaaja();
                 eraLoppu = true;
             } else {
@@ -240,11 +240,38 @@ public class PeliAlusta {
                 }
             }
             pelaajaSaaLopettaaVuoron = false;
+            if(nykyinenPelaaja().getEraTiedot().isUnoHuudettu()){
+                nykyinenPelaaja().getEraTiedot().setUnoHuudettu(false);
+                nykyinenPelaaja().getEraTiedot().setSaaVoittaa(true);
+            } else {
+                if(nykyinenPelaaja().getEraTiedot().isSaaVoittaa()){
+                    nykyinenPelaaja().getEraTiedot().setSaaVoittaa(false);
+                }
+            }
             return true;
 
         }
         return false;
     }
+    public void pelaajaHuutaaUno(){
+        if(nykyinenPelaaja().getEraTiedot().onkoPelaajallaUnoTila()){
+            nykyinenPelaaja().getEraTiedot().setUnoHuudettu(true);
+        }
+    }
+    
+    public void pelajaaPaljastaaUnon(Pelaaja pelaaja){
+        for(Pelaaja player : pelaajat){
+            if(player == pelaaja && pelaaja != nykyinenPelaaja()){
+                if(player.getEraTiedot().onkoPelaajallaUnoTila() || !player.getEraTiedot().isUnoHuudettu()){
+                    //Pelaja on palajastanut unon.
+                    for(int y = 0 ; y < 2; y++){
+                        pelaaja.getEraTiedot().getKortit().lisaa(nostoPakka.nosta());
+                    }
+                }
+            }
+        }
+    }
+    
     /**
      * Laskee pisteet erän lopussa
      * Palauttaa voittajan ansaitsemat pisteet
