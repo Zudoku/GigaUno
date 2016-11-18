@@ -43,11 +43,11 @@ public class KorttiPakka {
         }
         return null;
     }
-    
+
     public boolean voikoLaittaaKortin(Kortti kortti) {
         if (kortti != null) {
             Kortti ylinKortti = ylin();
-            
+
             if (kortti.getVari() == KorttiVari.ERIKOIS || kortti.getVari() == ylinKortti.getVari()) {
                 //Värisääntö
                 return true;
@@ -58,7 +58,7 @@ public class KorttiPakka {
         }
         return false;
     }
-    
+
     public void alustus(Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat, int korttiKerroin) {
         // Käydään kaikki kortit läpi
         for (KorttiTyyppi korttiTyyppi : KorttiTyyppi.values()) {
@@ -85,11 +85,9 @@ public class KorttiPakka {
         }
         sekoita();
     }
-    
-    
 
     public void lisaa(Kortti kortti) {
-        if(kortti != null){
+        if (kortti != null) {
             kortit.add(kortti);
         }
     }

@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 11,
-             Errors: 1,
+      <title>File: 14,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -47,20 +47,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.logiikka.kortit.Kortti.java">com/sirenart/gigauno/logiikka/kortit/Kortti.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.logiikka.peli.PeliAsetukset.java">com/sirenart/gigauno/logiikka/peli/PeliAsetukset.java</a>
                 </td>
                 <td>
                   0
@@ -97,7 +83,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -116,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.logiikka.kortit.KorttiPakka.java">com/sirenart/gigauno/logiikka/kortit/KorttiPakka.java</a>
+                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.gui.PeliRunko.java">com/sirenart/gigauno/gui/PeliRunko.java</a>
                 </td>
                 <td>
                   0
@@ -159,6 +145,62 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.logiikka.pelaaja.EraTiedot.java">com/sirenart/gigauno/logiikka/pelaaja/EraTiedot.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.gui.panels.PelisaantoPanel.java">com/sirenart/gigauno/gui/panels/PelisaantoPanel.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.logiikka.peli.PeliAsetukset.java">com/sirenart/gigauno/logiikka/peli/PeliAsetukset.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.gui.panels.PelaajienLisaysPanel.java">com/sirenart/gigauno/gui/panels/PelaajienLisaysPanel.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.sirenart.gigauno.logiikka.kortit.KorttiPakka.java">com/sirenart/gigauno/logiikka/kortit/KorttiPakka.java</a>
                 </td>
                 <td>
                   0

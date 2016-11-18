@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.sirenart.gigauno.gui.panels;
 
 import com.sirenart.gigauno.gui.PeliRunko;
@@ -26,25 +25,26 @@ import javax.swing.JTextField;
 
 /**
  * Created Nov 17, 2016
+ *
  * @author arska
  */
 public class PelaajienLisaysPanel extends JPanel {
-    
+
     private UnoPeli peli;
-    
+
     private JTextField uusiPelaajaNimiTextField;
 
     public PelaajienLisaysPanel(UnoPeli peli) {
         this.peli = peli;
         rakennaUusiksiPelaajat();
     }
-    
-    private void rakennaUusiksiPelaajat(){
+
+    private void rakennaUusiksiPelaajat() {
         removeAll();
         setPreferredSize(new Dimension(800, 800));
         setLayout(new GridLayout(8, 2, 10, 30));
-        for(int i = 0; i < 6; i++){
-            if(i < peli.getPelaajat().size()){
+        for (int i = 0; i < 6; i++) {
+            if (i < peli.getPelaajat().size()) {
                 JLabel label = new JLabel();
                 label.setText(peli.getPelaajat().get(i).getNimimerkki());
                 add(label);
@@ -55,25 +55,25 @@ public class PelaajienLisaysPanel extends JPanel {
             }
         }
         uusiPelaajaNimiTextField = new JTextField();
-        
+
         Font font1 = new Font("SansSerif", Font.BOLD, 35);
-        
+
         uusiPelaajaNimiTextField.setFont(font1);
         add(uusiPelaajaNimiTextField);
-        
+
         JButton lisaaPelaajaButton = new JButton("Lisää pelaaja");
         lisaaPelaajaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
+
                 lisaaPelaaja();
             }
         });
-        
+
         add(lisaaPelaajaButton);
-        
+
         add(new JLabel(""));
-        
+
         JButton valmisButton = new JButton("Valmis");
         valmisButton.addActionListener(new ActionListener() {
             @Override
@@ -82,23 +82,20 @@ public class PelaajienLisaysPanel extends JPanel {
                 parent.pelaajatValittu();
             }
         });
-        
+
         add(valmisButton);
 
-        
         validate();
     }
-    
-    private void lisaaPelaaja(){
-        if(peli.lisaaPelaaja(new Pelaaja(uusiPelaajaNimiTextField.getText()))){
+
+    private void lisaaPelaaja() {
+        if (peli.lisaaPelaaja(new Pelaaja(uusiPelaajaNimiTextField.getText()))) {
             uusiPelaajaNimiTextField.setText("");
             rakennaUusiksiPelaajat();
         } else {
             uusiPelaajaNimiTextField.setText("Huono pelaajanimi");
         }
-        
-        
+
     }
-    
-    
+
 }

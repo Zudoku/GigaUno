@@ -17,7 +17,6 @@ public class EraTiedot {
     private boolean unoHuudettu; // Onko pelaaja huutanut tällä kierroksella uno
     private boolean saaVoittaa;
     private KorttiKasi kortit;
-    
 
     public EraTiedot(int pelaajaIndeksi, KorttiKasi kortit) {
         this.pelaajaIndeksi = pelaajaIndeksi;
@@ -28,7 +27,7 @@ public class EraTiedot {
 
     public void setUnoHuudettu(boolean unoHuudettu) {
         this.unoHuudettu = unoHuudettu;
-        if(unoHuudettu){
+        if (unoHuudettu) {
             saaVoittaa = true;
         }
     }
@@ -56,7 +55,5 @@ public class EraTiedot {
     public boolean isSaaVoittaa() {
         return saaVoittaa;
     }
-    
-    
 
 }
