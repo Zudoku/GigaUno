@@ -14,7 +14,7 @@ pelaajat (monta samaan aikaan)
 ## Pelaajan toiminnot:
 
 - Pelin aloitus
-	- Pelin aloituksessa valitaan kuinka monta pelaajaa on pelaamassa ja muut mahdolliset pelin säännöt, esim aikaraja jos sellaisen haluaa
+	- Pelin aloituksessa valitaan kuinka monta pelaajaa on pelaamassa ja muut mahdolliset pelin säännöt, esim vuoron aikaraja jos sellaisen haluaa
 - Pelin pelaaminen vuorotellen: yksi pelaaja pelaa peliä kerrallaan ja oman vuoron päätteeksi päästää toisen pelaajan pelaamaan 
 
 ## Erän kulku
@@ -26,7 +26,7 @@ pelaajat (monta samaan aikaan)
 - Pelaaja päättää vuoron
 - Vuoro siirtyy seuraavalle ja ruutuun tulee varmistus että oikea pelaaja on pelaamassa
 - Seuraava pelaaja klikkaa varmistusnappulaa ja on hänen vuoronsa
-- Erä loppuu kun jollain pelaajalla ei enää ole kortteja tai jos jokin erityissääntö rikkoutuu(esim aika kuluu umpeen)
+- Erä loppuu kun jollain pelaajalla ei enää ole kortteja tai jos jokin erityissääntö rikkoutuu
 
 ## Pelin alussa säädettävät muuttujat
 

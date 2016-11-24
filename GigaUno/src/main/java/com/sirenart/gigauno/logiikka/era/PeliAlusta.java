@@ -161,10 +161,13 @@ public class PeliAlusta {
     /**
      * Nykyinen pelaaja haluaa laittaa kortin. palauttaa boolean arvon siitä,
      * onnistuiko kortin laitto vai ei.
+     * Samalla poistaa kortin hänen kädestään
+     * @return onnistuiko kortin laitto vai ei
      */
     public boolean pelaajaLaittaaKortin(Kortti kortti) {
         if (voikoPelaajaLaittaaKortin(kortti)) {
             laittoPakka.lisaa(kortti);
+            nykyinenPelaaja().getEraTiedot().getKortit().getKortit().remove(kortti);
             pelaajaSaaLopettaaVuoron = true;
             if (kortti.getVari() == KorttiVari.ERIKOIS) {
                 pelaajaPelaaErikoisKortin(kortti);
@@ -247,7 +250,7 @@ public class PeliAlusta {
      * @param kortti
      */
     public boolean voikoPelaajaLaittaaKortin(Kortti kortti) {
-        return laittoPakka.voikoLaittaaKortin(kortti);
+        return laittoPakka.voikoLaittaaKortin(kortti) && nykyinenPelaaja().getEraTiedot().getKortit().getKortit().contains(kortti);
     }
 
     /**
@@ -315,15 +318,15 @@ public class PeliAlusta {
      * Pelaaja yrittää paljastaa unon parametrinä annetulle pelajalle. Palauttaa
      * true jos palajastus onnistuu.
      */
-    public boolean pelajaaPaljastaaUnon(Pelaaja pelaaja) {
+    public boolean pelajaPaljastaaUnon(Pelaaja pelaaja) {
         for (Pelaaja player : pelaajat) {
             if (player == pelaaja && pelaaja != nykyinenPelaaja()) {
-                if (player.getEraTiedot().onkoPelaajallaUnoTila() || !player.getEraTiedot().isUnoHuudettu()) {
+                if (player.getEraTiedot().onkoPelaajallaUnoTila() && !player.getEraTiedot().isUnoHuudettu()) {
                     //Pelaja on palajastanut unon.
                     for (int y = 0; y < 2; y++) {
                         pelaaja.getEraTiedot().getKortit().lisaa(nostoPakka.nosta());
-                        return true;
                     }
+                    return true;
                 }
             }
         }
@@ -369,4 +372,8 @@ public class PeliAlusta {
         this.nykyinenPelaajaIndeksi = nykyinenPelaajaIndeksi;
     }
 
+    public boolean isKaanteinenKierros() {
+        return kaanteinenKierros;
+    }
+    
 }

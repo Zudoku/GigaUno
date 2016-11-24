@@ -8,7 +8,6 @@ package com.sirenart.gigauno.gui.panels;
 import com.sirenart.gigauno.logiikka.peli.UnoPeli;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import javax.swing.JPanel;
 
 /**
@@ -20,9 +19,9 @@ public class GamePlayPanel extends JPanel {
 
     private UnoPeli peli;
 
-    public final String ERATIEDOT = "ERATIEDOT";
-    public final String VARMISTUS = "VARMISTUS";
-    public final String VUORO = "VUORO";
+    public static final String ERATIEDOT = "ERATIEDOT";
+    public static final String VARMISTUS = "VARMISTUS";
+    public static final String VUORO = "VUORO";
 
     private VuoroPanel vuoroPanel;
     private EraTiedotPanel eraTiedotPanel;

@@ -6,4 +6,7 @@ Päivä | Tunnit | Kuvaus
 10.11.2016 | 4.0h | Pelin logiikan jatkoa, testien koodaaminen, luokkakaavion tekeminen
 17.11.2016 | 3.0h | Pelin GUI:n aloittaminen, logiikan viimeistelyä
 18.11.2016 | 4.0h |  Logiikan viimestelyä, dokumentaatiota, muutama testi lisää
+24.11.2016 | 4.0h | Pelin GUI:n jatkoa, peliasetuksen säätö panel.
+24.11.2016 | 4.0h | JavaDocsin aloittelua, GUI:n jatkoa, muutamia logiikka metodeja lisätty
+24.11.2016 | 2.5h | Testien kirjoittaminen
 

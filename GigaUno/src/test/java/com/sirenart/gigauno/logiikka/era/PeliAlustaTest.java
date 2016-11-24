@@ -49,6 +49,14 @@ public class PeliAlustaTest {
         Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat = getDefaultValinnat();
 
         PeliAlusta alusta = new PeliAlusta(pelaajat, erikoiskorttiValinnat, 1);
+        //Varmistetaan että laittopakka on olemassa
+        assertNotNull(alusta.getLaittoPakka());
+        //Varmistetaan että nostopakka on olemassa
+        assertNotNull(alusta.getNostoPakka());
+        //Varmistetaan että pelaajat on olemassa
+        assertNotNull(alusta.getPelaajat());
+        //Varmistetaan että pelaajat ovat jäljellä
+        assertEquals(pelaajat.size(), alusta.getPelaajat().size());
         //Varmistetaan, että laittopakassa on pelin alussa yksi kortti
         assertTrue(alusta.getLaittoPakka().jaljella() == 1);
         //Varmistetaan ettei nostopakka ole tyhjä
@@ -57,6 +65,10 @@ public class PeliAlustaTest {
         assertNull(alusta.getVoittaja());
         //Varmistetaan ettei ole loppunut erä heti luodessa
         assertFalse(alusta.isEraLoppu());
+        //Varmistetaan että pelaajat on initialisoitu
+        for(Pelaaja p : alusta.getPelaajat()) {
+            assertNotNull(p.getEraTiedot());
+        }
     }
 
     @org.junit.Test
@@ -103,7 +115,9 @@ public class PeliAlustaTest {
         alusta.aloitaEra();
 
         alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.VILLI));
-        alusta.pelaajaLaittaaKortin(new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.VILLI));
+        Kortti laitettuKortti = new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.VILLI);
+        alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(laitettuKortti);
+        alusta.pelaajaLaittaaKortin(laitettuKortti);
         //Varmistetaan että vuoron voi vaihtaa laitettuaan kortin pöytään
         assertTrue(alusta.pelaajaLopettaaVuoron());
     }

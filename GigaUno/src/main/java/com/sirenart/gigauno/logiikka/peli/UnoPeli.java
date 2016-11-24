@@ -123,6 +123,9 @@ public class UnoPeli {
      * Tarkistaa onko kukaan voittanut peliä.
      */
     private void tarkistaVoitto() {
+        if (pelaajat.isEmpty() || peliAsetukset == null) {
+            return;
+        }
         for (Pelaaja pelaaja : pelaajat) {
             if (pelaaja.getPisteita() >= peliAsetukset.getVoittoRaja()) {
                 pelikesken = false;
@@ -143,6 +146,22 @@ public class UnoPeli {
 
     public PeliAlusta getNykyinenEra() {
         return nykyinenEra;
+    }
+
+    public boolean isPelaajatLisatty() {
+        return pelaajatLisatty;
+    }
+
+    public boolean isPelikesken() {
+        return pelikesken;
+    }
+
+    public boolean isVoittajaLoytynyt() {
+        return voittajaLoytynyt;
+    }
+
+    public Pelaaja getVoittaja() {
+        return voittaja;
     }
 
 }
