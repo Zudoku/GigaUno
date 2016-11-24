@@ -10,3 +10,7 @@ Peli on tehty Javalla ja siihen tulee yksinkertainen käyttöliittymä Swingill�
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
 [Tuntipäiväkirja](dokumentaatio/tuntikirjanpito.md)
+
+[CheckStyle raportti](https://htmlpreview.github.io/?https://github.com/Zudoku/GigaUno/blob/master/dokumentaatio/checkstyle/checkstyle.html)
+
+[PIT raportti](https://htmlpreview.github.io/?https://github.com/Zudoku/GigaUno/blob/master/dokumentaatio/pit/index.html)
