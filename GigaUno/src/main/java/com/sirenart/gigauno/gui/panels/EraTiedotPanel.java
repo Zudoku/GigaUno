@@ -12,6 +12,8 @@ import com.sirenart.gigauno.logiikka.peli.UnoPeli;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Map;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -27,6 +29,17 @@ import javax.swing.JTable;
 public class EraTiedotPanel extends JPanel {
     
     private UnoPeli peli;
+    private GamePlayPanel parentPanel;
+
+    /**
+     * Graafinen käyttöliittymä siihen kun näytetään erän välissä tiedot 
+     * miten peli on edennyt.
+     * 
+     * @param parentPanel kontrolleri jota kutsutaan kun ollaan valmiita.
+     */
+    public EraTiedotPanel(GamePlayPanel parentPanel) {
+        this.parentPanel = parentPanel;
+    }
     
     public void paivita(UnoPeli peli) {
         removeAll();
@@ -82,7 +95,12 @@ public class EraTiedotPanel extends JPanel {
 
         
         JButton aloitaUusiButton = new JButton("Aloita uusi erä");
-        
+        aloitaUusiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                parentPanel.aloitaUusiEra();
+            }
+        });
         add(aloitaUusiButton);
         validate();
     }

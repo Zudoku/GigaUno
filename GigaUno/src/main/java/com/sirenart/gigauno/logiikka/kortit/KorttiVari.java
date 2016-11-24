@@ -11,4 +11,13 @@ package com.sirenart.gigauno.logiikka.kortit;
  */
 public enum KorttiVari {
     PUNAINEN, KELTAINEN, SININEN, VIHREA, ERIKOIS;
+
+    /**
+     * Enumi Kortin värille.
+     */
+    KorttiVari() {
+        
+    }
+    
+    
 }

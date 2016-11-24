@@ -18,6 +18,14 @@ public class EraTiedot {
     private boolean saaVoittaa;
     private KorttiKasi kortit;
 
+    /**
+     * Tämä luokka kuvastaa pelajan yhden erän tietoja.
+     * Tällä luokalla on KorttiKasi jossa on tämänhetkiset kortit
+     * ja pelaajaIndeksi ja tieto siitä onko UNO huudettu vai ei.
+     * 
+     * @param pelaajaIndeksi Tämän erän paikka pelissä
+     * @param kortit Tämän erän aloituskortit
+     */
     public EraTiedot(int pelaajaIndeksi, KorttiKasi kortit) {
         this.pelaajaIndeksi = pelaajaIndeksi;
         this.unoHuudettu = false;

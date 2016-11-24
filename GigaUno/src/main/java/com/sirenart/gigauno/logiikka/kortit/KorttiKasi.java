@@ -14,8 +14,16 @@ import java.util.List;
  */
 public class KorttiKasi {
 
+    /**
+     * Lista käden nykyisistä korteista.
+     */
     private List<Kortti> kortit;
 
+    /**
+     * Korttikäsi on pelaajan erän kortit. 
+     * Käteen voi lisätä kortteja ja sieltä voi poistaa kortteja.
+     * alustaa kortit tyhjäksi.
+     */
     public KorttiKasi() {
         kortit = new ArrayList<>();
     }

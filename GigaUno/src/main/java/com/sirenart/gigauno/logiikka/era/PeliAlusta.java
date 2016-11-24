@@ -38,6 +38,15 @@ public class PeliAlusta {
     private Pelaaja voittaja = null; // Kertoo voittajan kun erä on loppu, null jos erä ei ole loppu
     private boolean eraLoppu = false; // Kertoo onko erä loppunut
 
+    /**
+     * Kuvastaa UNO erää. Pelialusta on controlleri 
+     * ja sillä on tiedot kaikesta mitä yhdessä erässä tapahtuu.
+     * Erä alustetaan pelaajilla ja säännöillä.
+     * 
+     * @param pelaajat Erään osallistuvat pelaajat.
+     * @param erikoiskorttiValinnat Pelisäännöissä määritetyt erikoiskorttivalinnat
+     * @param korttiKerroin Pelisäännöissä määritetty korttipakka kerroin
+     */
     public PeliAlusta(List<Pelaaja> pelaajat, Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat, int korttiKerroin) {
         this.pelaajat = pelaajat;
         this.laittoPakka = new KorttiPakka();
@@ -117,8 +126,10 @@ public class PeliAlusta {
 
     }
 
+
     /**
      * Palauttaa nykyisen pelaajan
+     * @return nykyinen pelaaja kenen vuoro on
      */
     public Pelaaja nykyinenPelaaja() {
         return pelaajat.get(nykyinenPelaajaIndeksi);
@@ -126,6 +137,7 @@ public class PeliAlusta {
 
     /**
      * Palauttaa seuraavan pelaajan (seuraava pelaaja = kun vuoro vaihtuu)
+     * @return seuraava pelaajan kenen vuoro tulee olemaan
      */
     public Pelaaja seuraavaPelaaja() {
         int seuraavaIndeksi = nykyinenPelaajaIndeksi;
@@ -164,13 +176,15 @@ public class PeliAlusta {
 
     /**
      * Tarkistaa onko nykyinen pelaja voittanut pelin Jos on, merkitsee erän
-     * loppuneeksi ja asettaa voittajan.
+     * loppuneeksi ja asettaa voittajan ja antaa sille voittopisteet.
      */
     private void tarkistaVoitto() {
         if (nykyinenPelaaja().getEraTiedot().getKortit().getKortit().isEmpty()) {
-            if (nykyinenPelaaja().getEraTiedot().isSaaVoittaa()) {
+            if (nykyinenPelaaja().getEraTiedot().isSaaVoittaa() && !eraLoppu) {
                 voittaja = nykyinenPelaaja();
                 eraLoppu = true;
+                voittaja.setEraVoittoja(voittaja.getEraVoittoja() + 1);
+                voittaja.setPisteita(voittaja.getPisteita() + laskePisteet());
             } else {
                 for (int i = 0; i < 2; i++) {
                     nykyinenPelaaja().getEraTiedot().getKortit().lisaa(nostoPakka.nosta());

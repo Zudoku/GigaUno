@@ -10,12 +10,28 @@ package com.sirenart.gigauno.logiikka.pelaaja;
  * @author arska
  */
 public class Pelaaja {
+    /**
+     * Pelaajan nimimerkki
+     */
+    private String nimimerkki;
+    /**
+     * Kuinka monta pistettä pelaajalla on
+     */
+    private int pisteita;
+    /**
+     *  Kuinka monta erää pelaaja on voittanut
+     */
+    private int eraVoittoja;
+    /**
+     * Pelaajan käynnissä olevan erän tiedot
+     */
+    private EraTiedot eraTiedot; 
 
-    private String nimimerkki; // Pelaajan nimimerkki
-    private int pisteita; //Kuinka monta pistettä pelaajalla on
-    private int eraVoittoja; // Kuinka monta erää pelaaja on voittanut
-    private EraTiedot eraTiedot; //Pelaajan käynnissä olevan erän tiedot
-
+    /**
+     * Pelaaja luokka mallintaa yhtä pelaajaa. Se pitää kirjaa pisteistä 
+     * ja sillä on EraTiedot luokka jossa on pelaajan nykyisen erän tiedot (kortit jne)
+     * @param nimimerkki Pelaajan nimi
+     */
     public Pelaaja(String nimimerkki) {
         this.nimimerkki = nimimerkki;
         this.pisteita = 0;

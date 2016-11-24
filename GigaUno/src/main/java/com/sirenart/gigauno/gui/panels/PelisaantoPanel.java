@@ -33,7 +33,12 @@ public class PelisaantoPanel extends JPanel {
     private UnoPeli peli;
     private PeliAsetukset peliAsetukset;
     
-    
+    /**
+     * Toinen state pelissä,
+     * luo graafisen käyttöliittymän sääntöjen valitsemiseen
+     * 
+     * @param peli PeliRungossa oleva UnoPeli
+     */
     public PelisaantoPanel(UnoPeli peli) {
         this.peli = peli;
         this.peliAsetukset = PeliAsetukset.getDefaultAsetukset();

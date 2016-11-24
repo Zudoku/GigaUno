@@ -21,7 +21,15 @@ public class PeliAsetukset {
     private long aikaRajoitus;
     
     private int voittoRaja;
-
+    
+    /**
+     * Luokka joka määrää unon erikoissäännöt. 
+     * Tämä luokka toimii sääntöjen säiliönä.
+     * @param erikoiskorttiValinnat Map erikoiskortteista ja siitä onko ne valittu esiintymään pelissä 
+     * @param korttiKerroin Kuinka monella korttien määrä kerrotaan
+     * @param aikaRajoitus -1 jos ei aikarajoitusta, muuten 1-60 | 60 = 1 minuutti
+     * @param voittoRaja kuinka monta pistettä pelaaja tarvitsee että hän voittaa.
+     */
     public PeliAsetukset(Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat, int korttiKerroin, long aikaRajoitus, int voittoRaja) {
         this.erikoiskorttiValinnat = erikoiskorttiValinnat;
         this.korttiKerroin = korttiKerroin;
@@ -44,7 +52,10 @@ public class PeliAsetukset {
     public int getVoittoRaja() {
         return voittoRaja;
     }
-    
+    /**
+     * Metodi jolla voi saada default asetukset peliin.
+     * @return default peliasetukset
+     */
     public static final PeliAsetukset getDefaultAsetukset(){
         Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat = new HashMap<>();
         

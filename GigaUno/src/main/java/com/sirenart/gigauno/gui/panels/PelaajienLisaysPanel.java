@@ -35,6 +35,12 @@ public class PelaajienLisaysPanel extends JPanel {
 
     private JTextField uusiPelaajaNimiTextField;
 
+    /**
+     * Ensimmäinen state pelissä
+     * Luo graafisen käyttöliittymän pelaajien lisäämiseen
+     * 
+     * @param peli PeliRungossa oleva UnoPeli
+     */
     public PelaajienLisaysPanel(UnoPeli peli) {
         this.peli = peli;
         rakennaUusiksiPelaajat();

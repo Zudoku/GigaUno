@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sirenart.gigauno.logiikka.kortit;
 
 /**
@@ -23,7 +18,12 @@ public enum KorttiTyyppi {
     OHITUS(11, 2),
     VILLI(11, 2),
     VILLINOSTANELJA(15, 2);
-
+    
+    /**
+     * Kuvastaa kortin tyyppiä.
+     * @param pisteArvo Kuinka monta pistettä kortti antaa pelin lopussa.
+     * @param pakassaKortteja Kuinka monta korttia on pakassa ennen korttikerrointa.
+     */
     KorttiTyyppi(int pisteArvo, int pakassaKortteja) {
         this.pisteArvo = pisteArvo;
         this.pakassaKortteja = pakassaKortteja;

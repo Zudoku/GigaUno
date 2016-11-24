@@ -14,6 +14,12 @@ public class Kortti {
     private KorttiVari vari;
     private KorttiTyyppi tyyppi;
 
+    /**
+     * Kuvastaa yhtä uno korttia.
+     * Kortilla on väri ja tyyppi.
+     * @param vari kortin väri
+     * @param tyyppi kortin tyyppi
+     */
     public Kortti(KorttiVari vari, KorttiTyyppi tyyppi) {
         this.vari = vari;
         this.tyyppi = tyyppi;

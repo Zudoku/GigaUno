@@ -26,6 +26,13 @@ public class PeliRunko extends javax.swing.JFrame {
     private PelisaantoPanel pelisaantoPanel;
     private GamePlayPanel gameplayPanel;
 
+    /**
+     * PeliRunko on graafisen käyttöliittymän pääkontrolleri.
+     * Sillä on UnoPeli ja se ohjaa JPanelien vaihtoa 
+     * kun liikutaan esim. pelaajien lisäyksestä sääntöjen valitsemiseen
+     * 
+     * @throws HeadlessException Kun Swing failaa ?
+     */
     public PeliRunko() throws HeadlessException {
         initComponents();
     }

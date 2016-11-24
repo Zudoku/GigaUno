@@ -29,6 +29,11 @@ public class GamePlayPanel extends JPanel {
     private EraTiedotPanel eraTiedotPanel;
     private VarmistusPanel varmistusPanel;
 
+    /**
+     * Kontrolleri joka ohjaa pelin kulkua kun peli on käynnissä.
+     * 
+     * @param peli Peli jota pelataan.
+     */
     public GamePlayPanel(UnoPeli peli) {
         this.peli = peli;
         initComponents();
@@ -37,9 +42,9 @@ public class GamePlayPanel extends JPanel {
     }
     
     private void initComponents(){
-        vuoroPanel = new VuoroPanel();
-        eraTiedotPanel = new EraTiedotPanel();
-        varmistusPanel = new VarmistusPanel();
+        vuoroPanel = new VuoroPanel(this);
+        eraTiedotPanel = new EraTiedotPanel(this);
+        varmistusPanel = new VarmistusPanel(this);
         
         removeAll();
         setPreferredSize(new Dimension(800, 800));
@@ -53,6 +58,32 @@ public class GamePlayPanel extends JPanel {
         
         validate();
         
+    }
+    
+    public void aloitaUusiEra() {
+        peli.aloitaPeli();
+    }
+    
+    public void vuoroOhi(){
+        CardLayout cl = (CardLayout)(getLayout());
+        if(peli.getNykyinenEra().isEraLoppu()){
+            eraTiedotPanel.paivita(peli);
+            
+            validate();
+            cl.show(this, ERATIEDOT);
+        } else {
+            varmistusPanel.initializeComponents(peli.getNykyinenEra().nykyinenPelaaja().getNimimerkki());
+            validate();
+            cl.show(this, VARMISTUS);
+        }
+        
+        
+    }
+    public void vuoronVahvistus() {
+        CardLayout cl = (CardLayout)(getLayout());
+        //vuoroPanel
+        validate();
+        cl.show(this, VUORO);
     }
 
 }

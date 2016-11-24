@@ -14,6 +14,12 @@ import com.sirenart.gigauno.gui.PeliRunko;
  */
 public class Main {
 
+    /**
+     * GigaUnon Main luokka, tekee uuden Pelirungon 
+     * eli graafisen käyttöliittymän, joka sisältää pelin
+     * 
+     * @param args argumentteja ei käsitellä mitenkään
+     */
     public static void main(String[] args) {
         
         java.awt.EventQueue.invokeLater(() -> {
