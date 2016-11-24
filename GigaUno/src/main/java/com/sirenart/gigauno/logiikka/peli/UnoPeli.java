@@ -60,6 +60,16 @@ public class UnoPeli {
     public List<Pelaaja> getPelaajat() {
         return pelaajat;
     }
+
+    public PeliAsetukset getPeliAsetukset() {
+        return peliAsetukset;
+    }
+
+    public PeliAlusta getNykyinenEra() {
+        return nykyinenEra;
+    }
+    
+    
     
     
 

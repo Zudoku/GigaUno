@@ -18,6 +18,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Action;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -47,11 +48,14 @@ public class PelaajienLisaysPanel extends JPanel {
             if (i < peli.getPelaajat().size()) {
                 JLabel label = new JLabel();
                 label.setText(peli.getPelaajat().get(i).getNimimerkki());
+                label.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
                 add(label);
                 add(new JButton("poista"));
             } else {
-                add(new JLabel("<uusi pelaaja?>"));
-                add(new JButton(""));
+                JLabel uusiPelaajaLabel = new JLabel("<uusi pelaaja?>");
+                uusiPelaajaLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+                add(uusiPelaajaLabel);
+                add(new JLabel(""));
             }
         }
         uusiPelaajaNimiTextField = new JTextField();
@@ -59,6 +63,7 @@ public class PelaajienLisaysPanel extends JPanel {
         Font font1 = new Font("SansSerif", Font.BOLD, 35);
 
         uusiPelaajaNimiTextField.setFont(font1);
+        uusiPelaajaNimiTextField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         add(uusiPelaajaNimiTextField);
 
         JButton lisaaPelaajaButton = new JButton("Lisää pelaaja");

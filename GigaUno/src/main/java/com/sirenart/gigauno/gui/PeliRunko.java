@@ -5,12 +5,14 @@
  */
 package com.sirenart.gigauno.gui;
 
+import com.sirenart.gigauno.gui.panels.GamePlayPanel;
 import com.sirenart.gigauno.gui.panels.PelaajienLisaysPanel;
 import com.sirenart.gigauno.gui.panels.PelisaantoPanel;
 import com.sirenart.gigauno.logiikka.peli.UnoPeli;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import javax.swing.BoxLayout;
+import javax.swing.SwingUtilities;
 
 /**
  * Created Nov 17, 2016
@@ -22,6 +24,7 @@ public class PeliRunko extends javax.swing.JFrame {
     private UnoPeli peli = new UnoPeli();
     private PelaajienLisaysPanel pelaajienLisaysPanel;
     private PelisaantoPanel pelisaantoPanel;
+    private GamePlayPanel gameplayPanel;
 
     public PeliRunko() throws HeadlessException {
         initComponents();
@@ -42,10 +45,34 @@ public class PeliRunko extends javax.swing.JFrame {
 
     public void pelaajatValittu() {
         if (peli.paataPelaajienLisays()) {
-            getContentPane().remove(pelaajienLisaysPanel);
-            pelisaantoPanel = new PelisaantoPanel(peli);
-            getContentPane().add(pelisaantoPanel);
+            
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    getContentPane().removeAll();
+                    getContentPane().invalidate();
+                    //getContentPane().add(pelaajienLisaysPanel, BorderLayout.PAGE_START);
+                    pelisaantoPanel = new PelisaantoPanel(peli);
+                    getContentPane().add(pelisaantoPanel);
+                    validate();
+                }
+            });
+            
         }
+    }
+
+    public void saannotValittu() {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    getContentPane().removeAll();
+                    getContentPane().invalidate();
+                    
+                    gameplayPanel = new GamePlayPanel(peli);
+                    getContentPane().add(gameplayPanel);
+                    validate();
+                }
+            });
     }
 
 }
