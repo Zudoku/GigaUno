@@ -39,12 +39,12 @@ public class PeliAlusta {
     private boolean eraLoppu = false; // Kertoo onko erä loppunut
 
     /**
-     * Kuvastaa UNO erää. Pelialusta on controlleri 
-     * ja sillä on tiedot kaikesta mitä yhdessä erässä tapahtuu.
-     * Erä alustetaan pelaajilla ja säännöillä.
-     * 
+     * Kuvastaa UNO erää. Pelialusta on controlleri ja sillä on tiedot kaikesta
+     * mitä yhdessä erässä tapahtuu. Erä alustetaan pelaajilla ja säännöillä.
+     *
      * @param pelaajat Erään osallistuvat pelaajat.
-     * @param erikoiskorttiValinnat Pelisäännöissä määritetyt erikoiskorttivalinnat
+     * @param erikoiskorttiValinnat Pelisäännöissä määritetyt
+     * erikoiskorttivalinnat
      * @param korttiKerroin Pelisäännöissä määritetty korttipakka kerroin
      */
     public PeliAlusta(List<Pelaaja> pelaajat, Map<KorttiTyyppi, Boolean> erikoiskorttiValinnat, int korttiKerroin) {
@@ -126,9 +126,9 @@ public class PeliAlusta {
 
     }
 
-
     /**
      * Palauttaa nykyisen pelaajan
+     *
      * @return nykyinen pelaaja kenen vuoro on
      */
     public Pelaaja nykyinenPelaaja() {
@@ -137,6 +137,7 @@ public class PeliAlusta {
 
     /**
      * Palauttaa seuraavan pelaajan (seuraava pelaaja = kun vuoro vaihtuu)
+     *
      * @return seuraava pelaajan kenen vuoro tulee olemaan
      */
     public Pelaaja seuraavaPelaaja() {

@@ -19,10 +19,10 @@ public class EraTiedot {
     private KorttiKasi kortit;
 
     /**
-     * Tämä luokka kuvastaa pelajan yhden erän tietoja.
-     * Tällä luokalla on KorttiKasi jossa on tämänhetkiset kortit
-     * ja pelaajaIndeksi ja tieto siitä onko UNO huudettu vai ei.
-     * 
+     * Tämä luokka kuvastaa pelajan yhden erän tietoja. Tällä luokalla on
+     * KorttiKasi jossa on tämänhetkiset kortit ja pelaajaIndeksi ja tieto siitä
+     * onko UNO huudettu vai ei.
+     *
      * @param pelaajaIndeksi Tämän erän paikka pelissä
      * @param kortit Tämän erän aloituskortit
      */

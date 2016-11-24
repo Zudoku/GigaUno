@@ -19,17 +19,20 @@ public class KorttiPakka {
 
     /**
      * Lista pakan nykyisistä korteista.
+     *
      * @see Kortti
      */
     private List<Kortti> kortit;
 
     /**
      * Kuvastaa korttipakkaa, pakasta voi nostaa ja siihen voi laittaa kortteja.
-     * @param kortit Aloituskortit 
+     *
+     * @param kortit Aloituskortit
      */
     public KorttiPakka(List<Kortti> kortit) {
         this.kortit = kortit;
     }
+
     /**
      * Kuvastaa korttipakkaa, pakasta voi nostaa ja siihen voi laittaa kortteja.
      * Alustaa tyhjän korttipakan
@@ -37,11 +40,12 @@ public class KorttiPakka {
     public KorttiPakka() {
         kortit = new ArrayList<>();
     }
+
     /**
-     * Metodi jolla voi nostaa pakasta kortin, palauttaa ylimmän kortin
-     * ja samalla poistaa sen pakasta.
-     * Toimii samalla tavalla kuin ylin() mutta samalla poistaa kortin pakasta.
-     * 
+     * Metodi jolla voi nostaa pakasta kortin, palauttaa ylimmän kortin ja
+     * samalla poistaa sen pakasta. Toimii samalla tavalla kuin ylin() mutta
+     * samalla poistaa kortin pakasta.
+     *
      * @return null jos korttipakka on tyhjä, muulloin ylin kortti.
      */
     public Kortti nosta() {
@@ -52,8 +56,10 @@ public class KorttiPakka {
         }
         return null;
     }
+
     /**
      * Palauttaa ylimmän kortin pakassa, mutta ei tuhoa sitä kuten nosta().
+     *
      * @return null jos korttipakka on tyhjä, muulloin ylin kortti.
      */
     public Kortti ylin() {
@@ -63,12 +69,11 @@ public class KorttiPakka {
         }
         return null;
     }
-    
+
     /**
-     * Metodilla voi tarkistaa voiko korttia laittaa tähän korttipakkaan.
-     * Kortin voi laittaa jos väri tai tyyppi on sama 
-     * tai kortti on erikoiskortti.
-     * 
+     * Metodilla voi tarkistaa voiko korttia laittaa tähän korttipakkaan. Kortin
+     * voi laittaa jos väri tai tyyppi on sama tai kortti on erikoiskortti.
+     *
      * @param kortti Kortti jonka haluat laittaa
      * @return true jos voi laitta, muulloin false
      */
@@ -88,9 +93,9 @@ public class KorttiPakka {
     }
 
     /**
-     * Alustaa korttipakan annetuilla säännöillä
-     * kun halutaan tehdä nostopakka peliin.
-     * 
+     * Alustaa korttipakan annetuilla säännöillä kun halutaan tehdä nostopakka
+     * peliin.
+     *
      * @param erikoiskorttiValinnat Erikoiskorttivalinnat , katso PeliAsetukset
      * @param korttiKerroin kerroin jolla kerrotaan korttien määrä pakassa
      */
@@ -120,8 +125,10 @@ public class KorttiPakka {
         }
         sekoita();
     }
+
     /**
      * Lisää kortin pakosti pakkaan (ei tarkasta sääntöjä)
+     *
      * @param kortti Kortti joka halutaan lisätä
      */
     public void lisaa(Kortti kortti) {
@@ -132,12 +139,13 @@ public class KorttiPakka {
 
     /**
      * Palauttaa jäljellä olevien korttien määrän
+     *
      * @return jäljellä olevien korttien määrä
      */
     public int jaljella() {
         return kortit.size();
     }
-    
+
     /**
      * Sekoittaa pakan satunnaiseen järjestykseen.
      */

@@ -27,10 +27,10 @@ public class PeliRunko extends javax.swing.JFrame {
     private GamePlayPanel gameplayPanel;
 
     /**
-     * PeliRunko on graafisen käyttöliittymän pääkontrolleri.
-     * Sillä on UnoPeli ja se ohjaa JPanelien vaihtoa 
-     * kun liikutaan esim. pelaajien lisäyksestä sääntöjen valitsemiseen
-     * 
+     * PeliRunko on graafisen käyttöliittymän pääkontrolleri. Sillä on UnoPeli
+     * ja se ohjaa JPanelien vaihtoa kun liikutaan esim. pelaajien lisäyksestä
+     * sääntöjen valitsemiseen
+     *
      * @throws HeadlessException Kun Swing failaa ?
      */
     public PeliRunko() throws HeadlessException {
@@ -52,7 +52,7 @@ public class PeliRunko extends javax.swing.JFrame {
 
     public void pelaajatValittu() {
         if (peli.paataPelaajienLisays()) {
-            
+
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
@@ -64,22 +64,22 @@ public class PeliRunko extends javax.swing.JFrame {
                     validate();
                 }
             });
-            
+
         }
     }
 
     public void saannotValittu() {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    getContentPane().removeAll();
-                    getContentPane().invalidate();
-                    
-                    gameplayPanel = new GamePlayPanel(peli);
-                    getContentPane().add(gameplayPanel);
-                    validate();
-                }
-            });
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                getContentPane().removeAll();
+                getContentPane().invalidate();
+
+                gameplayPanel = new GamePlayPanel(peli);
+                getContentPane().add(gameplayPanel);
+                validate();
+            }
+        });
     }
 
 }

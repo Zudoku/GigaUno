@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sirenart.gigauno.logiikka.kortit;
 
 import java.util.ArrayList;
@@ -20,9 +15,8 @@ public class KorttiKasi {
     private List<Kortti> kortit;
 
     /**
-     * Korttikäsi on pelaajan erän kortit. 
-     * Käteen voi lisätä kortteja ja sieltä voi poistaa kortteja.
-     * alustaa kortit tyhjäksi.
+     * Korttikäsi on pelaajan erän kortit. Käteen voi lisätä kortteja ja sieltä
+     * voi poistaa kortteja. alustaa kortit tyhjäksi.
      */
     public KorttiKasi() {
         kortit = new ArrayList<>();

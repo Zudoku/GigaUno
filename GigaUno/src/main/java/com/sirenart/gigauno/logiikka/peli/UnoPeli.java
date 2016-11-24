@@ -27,18 +27,20 @@ public class UnoPeli {
     private PeliAlusta nykyinenEra;
 
     /**
-     * UnoPeli on luokka joka kuvaa koko Uno peliä. 
-     * UnoPelillä on PeliAlusta joka kuvaa nykyistä erää ja tiedot pelaajista ja onko peli kesken vai ei.
+     * UnoPeli on luokka joka kuvaa koko Uno peliä. UnoPelillä on PeliAlusta
+     * joka kuvaa nykyistä erää ja tiedot pelaajista ja onko peli kesken vai ei.
      */
     public UnoPeli() {
         this.pelaajatLisatty = false;
         this.peliAsetukset = null;
         this.pelaajat = new ArrayList<>();
     }
+
     /**
-     * Päätä Pelaajien lisäysvaihe. 
-     * Metodi palauttaa booleanin siitä onnistuiko siirtyminen seuraavaan pelin vaiheeseen vai ei.
-     * Yksi ehdoista on se, että pelissä on ainakin kaksi pelaajaa.
+     * Päätä Pelaajien lisäysvaihe. Metodi palauttaa booleanin siitä onnistuiko
+     * siirtyminen seuraavaan pelin vaiheeseen vai ei. Yksi ehdoista on se, että
+     * pelissä on ainakin kaksi pelaajaa.
+     *
      * @return boolean joka kertoo onnistuiko tilan päättäminen
      */
     public boolean paataPelaajienLisays() {
@@ -48,10 +50,12 @@ public class UnoPeli {
         this.pelaajatLisatty = true;
         return true;
     }
+
     /**
-     * Metodi jolla voi lisätä peliin yhden pelaajan. 
-     * Pelaajan lisäys voi epäonnistua jos pelaajien lisäysvaihe on ohi 
-     * tai samanniminen pelaaja on jo olemassa tai jos nimimerkki on tyhjä.
+     * Metodi jolla voi lisätä peliin yhden pelaajan. Pelaajan lisäys voi
+     * epäonnistua jos pelaajien lisäysvaihe on ohi tai samanniminen pelaaja on
+     * jo olemassa tai jos nimimerkki on tyhjä.
+     *
      * @param pelaaja Pelaaja jonka haluat lisätä peliin
      * @return false jos epäonnistuu, muulloin true.
      */
@@ -59,8 +63,8 @@ public class UnoPeli {
         if (pelaajatLisatty || pelaaja.getNimimerkki() == null || pelaaja.getNimimerkki().isEmpty()) {
             return false;
         }
-        for(Pelaaja p : pelaajat) {
-            if(p.getNimimerkki().equals(pelaaja.getNimimerkki())) { 
+        for (Pelaaja p : pelaajat) {
+            if (p.getNimimerkki().equals(pelaaja.getNimimerkki())) {
                 return false;
             }
         }
@@ -71,8 +75,10 @@ public class UnoPeli {
     public void setPeliAsetukset(PeliAsetukset peliAsetukset) {
         this.peliAsetukset = peliAsetukset;
     }
+
     /**
      * Metodi jota kutsutaan kun halutaan aloittaa peli.
+     *
      * @return false jos aloitus epäonnistuu, muulloin true
      */
     public boolean aloitaPeli() {
@@ -82,14 +88,16 @@ public class UnoPeli {
         }
         return false;
     }
+
     /**
      * Metodi jota kutsutaan kun halutaan aloittaa seuraava erä.
+     *
      * @return false jos erän aloittaminen ei onnistu, muulloin true
      */
-    public boolean seuraavaEra(){
+    public boolean seuraavaEra() {
         tarkistaVoitto();
-        if(nykyinenEra == null || nykyinenEra.isEraLoppu() ){
-            if(!pelikesken) {
+        if (nykyinenEra == null || nykyinenEra.isEraLoppu()) {
+            if (!pelikesken) {
                 return false;
             }
             nykyinenEra = new PeliAlusta(pelaajat, peliAsetukset.getErikoiskorttiValinnat(), peliAsetukset.getKorttiKerroin());
@@ -97,23 +105,26 @@ public class UnoPeli {
         }
         return false;
     }
+
     /**
      * Metodi joka palauttaa onko koko peli ohi eli onko voittaja löytynyt.
+     *
      * @return true jos peli on ohi, muulloin false
      */
-    public boolean peliOhi(){
+    public boolean peliOhi() {
         tarkistaVoitto();
-        if(!pelikesken && voittajaLoytynyt){
+        if (!pelikesken && voittajaLoytynyt) {
             return true;
         }
         return false;
     }
+
     /**
      * Tarkistaa onko kukaan voittanut peliä.
      */
-    private void tarkistaVoitto(){
-        for(Pelaaja pelaaja : pelaajat) {
-            if(pelaaja.getPisteita() >= peliAsetukset.getVoittoRaja()){
+    private void tarkistaVoitto() {
+        for (Pelaaja pelaaja : pelaajat) {
+            if (pelaaja.getPisteita() >= peliAsetukset.getVoittoRaja()) {
                 pelikesken = false;
                 voittajaLoytynyt = true;
                 voittaja = pelaaja;
@@ -133,9 +144,5 @@ public class UnoPeli {
     public PeliAlusta getNykyinenEra() {
         return nykyinenEra;
     }
-    
-    
-    
-    
 
 }

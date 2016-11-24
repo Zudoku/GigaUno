@@ -16,8 +16,7 @@ public enum KorttiVari {
      * Enumi Kortin värille.
      */
     KorttiVari() {
-        
+
     }
-    
-    
+
 }

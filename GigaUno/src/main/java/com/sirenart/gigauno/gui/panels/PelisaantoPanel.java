@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.sirenart.gigauno.gui.panels;
 
 import com.sirenart.gigauno.gui.PeliRunko;
@@ -27,16 +26,18 @@ import javax.swing.event.ChangeListener;
 
 /**
  * Created Nov 17, 2016
+ *
  * @author arska
  */
 public class PelisaantoPanel extends JPanel {
+
     private UnoPeli peli;
     private PeliAsetukset peliAsetukset;
-    
+
     /**
-     * Toinen state pelissä,
-     * luo graafisen käyttöliittymän sääntöjen valitsemiseen
-     * 
+     * Toinen state pelissä, luo graafisen käyttöliittymän sääntöjen
+     * valitsemiseen
+     *
      * @param peli PeliRungossa oleva UnoPeli
      */
     public PelisaantoPanel(UnoPeli peli) {
@@ -44,24 +45,24 @@ public class PelisaantoPanel extends JPanel {
         this.peliAsetukset = PeliAsetukset.getDefaultAsetukset();
         initComponents();
     }
-    
-    private void initComponents(){
+
+    private void initComponents() {
         removeAll();
         setPreferredSize(new Dimension(800, 800));
         setLayout(new GridLayout(9, 2, 10, 30));
-        
+
         Font font1 = new Font("SansSerif", Font.BOLD, 35);
-        
+
         JLabel header = new JLabel("Pelin asetukset");
         header.setFont(font1);
         header.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(header);
         JLabel selitys = new JLabel("<html>Valitse Peliin haluamasi kortit, voittoraja, korttikerroin ja aikaraja</html>");
-        
+
         selitys.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        
+
         add(selitys);
-        for(KorttiTyyppi tyyppi : peliAsetukset.getErikoiskorttiValinnat().keySet()) {
+        for (KorttiTyyppi tyyppi : peliAsetukset.getErikoiskorttiValinnat().keySet()) {
             JCheckBox checkbox = new JCheckBox(tyyppi.toString());
             checkbox.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             checkbox.addActionListener(new ActionListener() {
@@ -74,7 +75,7 @@ public class PelisaantoPanel extends JPanel {
             add(checkbox);
         }
         add(new JLabel());
-        
+
         JLabel aikarajaLabel = new JLabel("Pelin vuoroaikaraja:  -1 = ei rajaa | 60 = 1 minuutti");
         aikarajaLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(aikarajaLabel);
@@ -82,12 +83,12 @@ public class PelisaantoPanel extends JPanel {
         aikaraja.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent ce) {
-                aikaRajaToggle((int)aikaraja.getModel().getValue());
+                aikaRajaToggle((int) aikaraja.getModel().getValue());
             }
         });
         aikaraja.setFont(font1);
         add(aikaraja);
-        
+
         JLabel korttikerroinLabel = new JLabel("Korttikerroin: ");
         korttikerroinLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(korttikerroinLabel);
@@ -95,15 +96,14 @@ public class PelisaantoPanel extends JPanel {
         korttikerroin.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent ce) {
-                korttikerroinToggle((int)korttikerroin.getModel().getValue());
+                korttikerroinToggle((int) korttikerroin.getModel().getValue());
             }
 
-            
         });
 
         korttikerroin.setFont(font1);
         add(korttikerroin);
-        
+
         JLabel voittorajaLabel = new JLabel("Pelin voittoraja: ");
         voittorajaLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(voittorajaLabel);
@@ -111,14 +111,13 @@ public class PelisaantoPanel extends JPanel {
         voittoraja.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent ce) {
-                korttikerroinToggle((int)voittoraja.getModel().getValue());
+                korttikerroinToggle((int) voittoraja.getModel().getValue());
             }
 
-            
         });
         voittoraja.setFont(font1);
         add(voittoraja);
-        
+
         add(new JLabel());
         JButton valmisButton = new JButton("Valmis");
         valmisButton.addActionListener(new ActionListener() {
@@ -129,31 +128,30 @@ public class PelisaantoPanel extends JPanel {
                 parent.saannotValittu();
             }
         });
-        
-        
+
         valmisButton.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(valmisButton);
         validate();
     }
+
     public void korttikerroinToggle(int i) {
         peliAsetukset.setKorttiKerroin(i);
         peli.setPeliAsetukset(peliAsetukset);
     }
-    
+
     public void toggleKortti(KorttiTyyppi tyyppi) {
         peliAsetukset.getErikoiskorttiValinnat().put(tyyppi, !peliAsetukset.getErikoiskorttiValinnat().get(tyyppi));
         peli.setPeliAsetukset(peliAsetukset);
     }
-    
+
     public void aikaRajaToggle(int arvo) {
         peliAsetukset.setAikaRajoitus(arvo);
         peli.setPeliAsetukset(peliAsetukset);
     }
-    
+
     public void pisterajaToggle(int i) {
         peliAsetukset.setVoittoRaja(i);
         peli.setPeliAsetukset(peliAsetukset);
     }
-    
 
 }

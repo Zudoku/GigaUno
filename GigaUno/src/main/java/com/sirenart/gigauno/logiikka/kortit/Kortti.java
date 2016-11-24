@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.sirenart.gigauno.logiikka.kortit;
 
 /**
  * Created Nov 11, 2016
+ *
  * @author arska
  */
 public class Kortti {
+
     private KorttiVari vari;
     private KorttiTyyppi tyyppi;
 
     /**
-     * Kuvastaa yhtä uno korttia.
-     * Kortilla on väri ja tyyppi.
+     * Kuvastaa yhtä uno korttia. Kortilla on väri ja tyyppi.
+     *
      * @param vari kortin väri
      * @param tyyppi kortin tyyppi
      */
@@ -36,7 +37,5 @@ public class Kortti {
     public void setVari(KorttiVari vari) {
         this.vari = vari;
     }
-    
-    
 
 }
