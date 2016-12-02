@@ -25,7 +25,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * Created Nov 17, 2016
+ * Toinen state pelissä, luo graafisen käyttöliittymän sääntöjen valitsemiseen.
  *
  * @author arska
  */
@@ -36,7 +36,7 @@ public class PelisaantoPanel extends JPanel {
 
     /**
      * Toinen state pelissä, luo graafisen käyttöliittymän sääntöjen
-     * valitsemiseen
+     * valitsemiseen.
      *
      * @param peli PeliRungossa oleva UnoPeli
      */
@@ -134,22 +134,22 @@ public class PelisaantoPanel extends JPanel {
         validate();
     }
 
-    public void korttikerroinToggle(int i) {
+    private void korttikerroinToggle(int i) {
         peliAsetukset.setKorttiKerroin(i);
         peli.setPeliAsetukset(peliAsetukset);
     }
 
-    public void toggleKortti(KorttiTyyppi tyyppi) {
+    private void toggleKortti(KorttiTyyppi tyyppi) {
         peliAsetukset.getErikoiskorttiValinnat().put(tyyppi, !peliAsetukset.getErikoiskorttiValinnat().get(tyyppi));
         peli.setPeliAsetukset(peliAsetukset);
     }
 
-    public void aikaRajaToggle(int arvo) {
+    private void aikaRajaToggle(int arvo) {
         peliAsetukset.setAikaRajoitus(arvo);
         peli.setPeliAsetukset(peliAsetukset);
     }
 
-    public void pisterajaToggle(int i) {
+    private void pisterajaToggle(int i) {
         peliAsetukset.setVoittoRaja(i);
         peli.setPeliAsetukset(peliAsetukset);
     }

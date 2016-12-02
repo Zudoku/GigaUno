@@ -25,7 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * Created Nov 17, 2016
+ * Ensimmäinen state pelissä Luo graafisen käyttöliittymän pelaajien lisäämiseen.
  *
  * @author arska
  */
@@ -37,7 +37,7 @@ public class PelaajienLisaysPanel extends JPanel {
 
     /**
      * Ensimmäinen state pelissä Luo graafisen käyttöliittymän pelaajien
-     * lisäämiseen
+     * lisäämiseen.
      *
      * @param peli PeliRungossa oleva UnoPeli
      */

@@ -22,7 +22,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 /**
- * Created Nov 24, 2016
+ * Graafinen käyttöliittymä siihen kun näytetään erän välissä tiedot miten peli
+ * on edennyt.
  *
  * @author arska
  */
@@ -41,6 +42,11 @@ public class EraTiedotPanel extends JPanel {
         this.parentPanel = parentPanel;
     }
 
+    /**
+     * Päivittää graafisen käyttöliittymän.
+     * 
+     * @param peli nykyinen pelattava peli
+     */
     public void paivita(UnoPeli peli) {
         removeAll();
         invalidate();

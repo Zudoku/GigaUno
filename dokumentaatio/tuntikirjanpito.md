@@ -9,4 +9,5 @@ Päivä | Tunnit | Kuvaus
 24.11.2016 | 4.0h | Pelin GUI:n jatkoa, peliasetuksen säätö panel.
 24.11.2016 | 4.0h | JavaDocsin aloittelua, GUI:n jatkoa, muutamia logiikka metodeja lisätty
 24.11.2016 | 2.5h | Testien kirjoittaminen
+2.12.2016  | 7.0h | Graafisen käyttöliittymän tekeminen, Javadocsin korjaus, Sekvenssikaavioiden teko
 

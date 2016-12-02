@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
+ * Kuvastaa korttipakkaa, pakasta voi nostaa ja siihen voi laittaa kortteja.
  *
  * @author arska
  */
@@ -81,7 +82,8 @@ public class KorttiPakka {
         if (kortti != null) {
             Kortti ylinKortti = ylin();
 
-            if (kortti.getVari() == KorttiVari.ERIKOIS || kortti.getVari() == ylinKortti.getVari()) {
+            if (kortti.getVari() == KorttiVari.ERIKOIS || kortti.getVari() == ylinKortti.getVari()
+                    || ylinKortti.getVari() == KorttiVari.ERIKOIS && !(ylinKortti.getTyyppi() == KorttiTyyppi.VILLI || ylinKortti.getTyyppi() == KorttiTyyppi.VILLINOSTANELJA)) {
                 //Värisääntö + erikoiskortti
                 return true;
             } else if (kortti.getTyyppi() == ylinKortti.getTyyppi()) {
@@ -127,7 +129,8 @@ public class KorttiPakka {
     }
 
     /**
-     * Lisää kortin pakosti pakkaan (ei tarkasta sääntöjä)
+     * Lisää kortin pakosti pakkaan.
+     * (ei tarkasta sääntöjä)
      *
      * @param kortti Kortti joka halutaan lisätä
      */
@@ -138,7 +141,7 @@ public class KorttiPakka {
     }
 
     /**
-     * Palauttaa jäljellä olevien korttien määrän
+     * Palauttaa jäljellä olevien korttien määrän.
      *
      * @return jäljellä olevien korttien määrä
      */

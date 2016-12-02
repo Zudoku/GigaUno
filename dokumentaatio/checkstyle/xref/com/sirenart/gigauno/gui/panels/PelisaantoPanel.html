@@ -33,7 +33,7 @@
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> javax.swing.event.ChangeListener;
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * Created Nov 17, 2016</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * Toinen state pelissä, luo graafisen käyttöliittymän sääntöjen valitsemiseen.</em>
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * @author arska</em>
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> */</em>
@@ -44,7 +44,7 @@
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     * Toinen state pelissä, luo graafisen käyttöliittymän sääntöjen</em>
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     * valitsemiseen</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     * valitsemiseen.</em>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * @param peli PeliRungossa oleva UnoPeli</em>
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     */</em>
@@ -142,22 +142,22 @@
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>         validate();
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>     }
 <a class="jxr_linenumber" name="L136" href="#L136">136</a> 
-<a class="jxr_linenumber" name="L137" href="#L137">137</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> korttikerroinToggle(<strong class="jxr_keyword">int</strong> i) {
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> korttikerroinToggle(<strong class="jxr_keyword">int</strong> i) {
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>         peliAsetukset.setKorttiKerroin(i);
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>         peli.setPeliAsetukset(peliAsetukset);
 <a class="jxr_linenumber" name="L140" href="#L140">140</a>     }
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> 
-<a class="jxr_linenumber" name="L142" href="#L142">142</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> toggleKortti(<a href="../../../../../com/sirenart/gigauno/logiikka/kortit/KorttiTyyppi.html">KorttiTyyppi</a> tyyppi) {
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> toggleKortti(<a href="../../../../../com/sirenart/gigauno/logiikka/kortit/KorttiTyyppi.html">KorttiTyyppi</a> tyyppi) {
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>         peliAsetukset.getErikoiskorttiValinnat().put(tyyppi, !peliAsetukset.getErikoiskorttiValinnat().get(tyyppi));
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>         peli.setPeliAsetukset(peliAsetukset);
 <a class="jxr_linenumber" name="L145" href="#L145">145</a>     }
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 
-<a class="jxr_linenumber" name="L147" href="#L147">147</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> aikaRajaToggle(<strong class="jxr_keyword">int</strong> arvo) {
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> aikaRajaToggle(<strong class="jxr_keyword">int</strong> arvo) {
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>         peliAsetukset.setAikaRajoitus(arvo);
 <a class="jxr_linenumber" name="L149" href="#L149">149</a>         peli.setPeliAsetukset(peliAsetukset);
 <a class="jxr_linenumber" name="L150" href="#L150">150</a>     }
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> 
-<a class="jxr_linenumber" name="L152" href="#L152">152</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> pisterajaToggle(<strong class="jxr_keyword">int</strong> i) {
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> pisterajaToggle(<strong class="jxr_keyword">int</strong> i) {
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>         peliAsetukset.setVoittoRaja(i);
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         peli.setPeliAsetukset(peliAsetukset);
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>     }

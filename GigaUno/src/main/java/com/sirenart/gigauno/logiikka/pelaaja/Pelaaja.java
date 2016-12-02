@@ -1,11 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sirenart.gigauno.logiikka.pelaaja;
 
 /**
+ *
+ * Pelaaja luokka mallintaa yhtä pelaajaa. Se pitää kirjaa pisteistä ja sillä on
+ * EraTiedot luokka jossa on pelaajan nykyisen erän tiedot (kortit jne)
  *
  * @author arska
  */

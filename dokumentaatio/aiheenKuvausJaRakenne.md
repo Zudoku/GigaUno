@@ -73,5 +73,15 @@ Villikortti + nosta 4 | 15
 
 ![Pelin logiikan rakenne](gigaunoluokkakuva.png  "Pelin logiikan rakenne")
 
+## Sekvenssikaaviot
+
+### Kortin laitto
+
+![Kortin laitto](kortinlaitto.png  "kortin laitto")
+
+### Vuoron loppuminen
+
+![vuoron loppuminen](vuoronloppuminen.png  "vuoron loppuminen")
+
 
 

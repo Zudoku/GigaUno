@@ -11,11 +11,12 @@ import com.sirenart.gigauno.gui.panels.PelisaantoPanel;
 import com.sirenart.gigauno.logiikka.peli.UnoPeli;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
-import javax.swing.BoxLayout;
 import javax.swing.SwingUtilities;
 
 /**
- * Created Nov 17, 2016
+ * PeliRunko on graafisen käyttöliittymän pääkontrolleri. Sillä on UnoPeli ja se
+ * ohjaa JPanelien vaihtoa kun liikutaan esim. pelaajien lisäyksestä sääntöjen
+ * valitsemiseen
  *
  * @author arska
  */
@@ -40,7 +41,7 @@ public class PeliRunko extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gigauno");
+        setTitle("Gigauno (HUOM! PELIN GRAAFINEN KÄYTTÖLIITTYMÄ ON VIELÄ PAHASTI OSITTAIN KESKEN)");
         setSize(800, 800);
 
         pelaajienLisaysPanel = new PelaajienLisaysPanel(peli);
@@ -50,6 +51,9 @@ public class PeliRunko extends javax.swing.JFrame {
         pack();
     }
 
+    /**
+     * Metodi jota kutsutaan kun pelaajat ovat valittu graafisessa liittymässä.
+     */
     public void pelaajatValittu() {
         if (peli.paataPelaajienLisays()) {
 
@@ -68,6 +72,9 @@ public class PeliRunko extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodi jota kutsutaan kun säännöt ovat valittu graafisessa liittymässä.
+     */
     public void saannotValittu() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

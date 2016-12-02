@@ -1,6 +1,7 @@
 package com.sirenart.gigauno.logiikka.kortit;
 
 /**
+ * Kuvastaa kortin tyyppiä.
  *
  * @author arska
  */

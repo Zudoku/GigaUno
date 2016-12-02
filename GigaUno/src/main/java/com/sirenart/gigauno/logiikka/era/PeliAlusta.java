@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.Random;
 
 /**
+ * Kuvastaa UNO erää. Pelialusta on controlleri ja sillä on tiedot kaikesta mitä
+ * yhdessä erässä tapahtuu. Erä alustetaan pelaajilla ja säännöillä.
  *
  * @author arska
  */
@@ -122,12 +124,15 @@ public class PeliAlusta {
         return nostoPakka;
     }
 
+    /**
+     * Tyhjä metodi toistaiseksi, kuuluu kutsua kun haluaa aloittaa erän.
+     */
     public void aloitaEra() {
 
     }
 
     /**
-     * Palauttaa nykyisen pelaajan
+     * Palauttaa nykyisen pelaajan.
      *
      * @return nykyinen pelaaja kenen vuoro on
      */
@@ -136,7 +141,8 @@ public class PeliAlusta {
     }
 
     /**
-     * Palauttaa seuraavan pelaajan (seuraava pelaaja = kun vuoro vaihtuu)
+     * Palauttaa seuraavan pelaajan. 
+     * (seuraava pelaaja = kun vuoro vaihtuu)
      *
      * @return seuraava pelaajan kenen vuoro tulee olemaan
      */
@@ -160,8 +166,9 @@ public class PeliAlusta {
 
     /**
      * Nykyinen pelaaja haluaa laittaa kortin. palauttaa boolean arvon siitä,
-     * onnistuiko kortin laitto vai ei.
-     * Samalla poistaa kortin hänen kädestään
+     * onnistuiko kortin laitto vai ei. Samalla poistaa kortin hänen kädestään
+     *
+     * @param kortti  kortti jonka pelaaja haluaa laittaa
      * @return onnistuiko kortin laitto vai ei
      */
     public boolean pelaajaLaittaaKortin(Kortti kortti) {
@@ -245,9 +252,10 @@ public class PeliAlusta {
 
     /**
      * Palauttaa true jos pelaaja voi laittaa parametrina annetun kortin
-     * laittopakkaan
+     * laittopakkaan.
      *
-     * @param kortti
+     * @param kortti kortti joka halutaan laittaa
+     * @return true jos voi, muulloin false
      */
     public boolean voikoPelaajaLaittaaKortin(Kortti kortti) {
         return laittoPakka.voikoLaittaaKortin(kortti) && nykyinenPelaaja().getEraTiedot().getKortit().getKortit().contains(kortti);
@@ -257,7 +265,7 @@ public class PeliAlusta {
      * Kun pelaaja haluaa nostaa kortin. Palauttaa boolean arvon joka kertoo
      * onnistuiko kortin nosto vai ei.
      *
-     * @return
+     * @return true jos onnistuu, false jos ei
      */
     public boolean pelaajaNostaaKortin() {
         Kortti nostettu = nostoPakka.nosta();
@@ -271,7 +279,9 @@ public class PeliAlusta {
 
     /**
      * Pelaaja yrittää lopettaa vuoron Palauttaa boolean arvon joka merkitsee
-     * sitä, oliko vuoron lopettaminen onnistuminen vai ei
+     * sitä, oliko vuoron lopettaminen onnistuminen vai ei.
+     * 
+     * @return true jos onnistuu, false jos ei
      */
     public boolean pelaajaLopettaaVuoron() {
         //Tarkistetaan onko pelaaja ottanut kortin pakasta, tai laittanut kortin pakkaan.
@@ -305,6 +315,7 @@ public class PeliAlusta {
 
     /**
      * Pelaaja haluaa huutaa uno. palauttaa true jos huuto onnistuu
+     * @return true jos onnistuu, false jos ei
      */
     public boolean pelaajaHuutaaUno() {
         if (nykyinenPelaaja().getEraTiedot().onkoPelaajallaUnoTila()) {
@@ -317,6 +328,9 @@ public class PeliAlusta {
     /**
      * Pelaaja yrittää paljastaa unon parametrinä annetulle pelajalle. Palauttaa
      * true jos palajastus onnistuu.
+     * 
+     * @param pelaaja pelaaja kenet nykyinen pelaaja paljastaa
+     * @return true jos onnistuu, false jos ei
      */
     public boolean pelajaPaljastaaUnon(Pelaaja pelaaja) {
         for (Pelaaja player : pelaajat) {
@@ -334,7 +348,9 @@ public class PeliAlusta {
     }
 
     /**
-     * Laskee pisteet erän lopussa Palauttaa voittajan ansaitsemat pisteet
+     * Laskee pisteet erän lopussa Palauttaa voittajan ansaitsemat pisteet.
+     * 
+     * @return ansaitut pisteet
      */
     public int laskePisteet() {
         int pisteet = 0;
@@ -375,5 +391,9 @@ public class PeliAlusta {
     public boolean isKaanteinenKierros() {
         return kaanteinenKierros;
     }
-    
+
+    public boolean isPelaajaSaaLopettaaVuoron() {
+        return pelaajaSaaLopettaaVuoron;
+    }
+
 }

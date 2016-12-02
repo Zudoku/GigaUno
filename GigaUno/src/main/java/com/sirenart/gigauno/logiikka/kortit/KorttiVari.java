@@ -6,6 +6,7 @@
 package com.sirenart.gigauno.logiikka.kortit;
 
 /**
+ * Enumi Kortin värille.
  *
  * @author arska
  */

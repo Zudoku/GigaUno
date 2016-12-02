@@ -11,7 +11,7 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 
 /**
- * Created Nov 24, 2016
+ * Kontrolleri joka ohjaa pelin kulkua kun peli on käynnissä.
  *
  * @author arska
  */
@@ -34,6 +34,7 @@ public class GamePlayPanel extends JPanel {
      */
     public GamePlayPanel(UnoPeli peli) {
         this.peli = peli;
+        peli.aloitaPeli();
         initComponents();
         CardLayout cl = (CardLayout) (getLayout());
         cl.show(this, ERATIEDOT);
@@ -57,11 +58,19 @@ public class GamePlayPanel extends JPanel {
         validate();
 
     }
-
+    /**
+     * Kontrolleri metodi silloin kun halutaan aloittaa uusi erä.
+     */
     public void aloitaUusiEra() {
-        peli.aloitaPeli();
-    }
 
+        peli.seuraavaEra();
+        CardLayout cl = (CardLayout) (getLayout());
+        varmistusPanel.initializeComponents(peli.getNykyinenEra().nykyinenPelaaja().getNimimerkki());
+        cl.show(this, VARMISTUS);
+    }
+    /**
+     *  Kontrolleri metodi silloin kun vuoro on lopetettu.
+     */
     public void vuoroOhi() {
         CardLayout cl = (CardLayout) (getLayout());
         if (peli.getNykyinenEra().isEraLoppu()) {
@@ -76,12 +85,19 @@ public class GamePlayPanel extends JPanel {
         }
 
     }
-
+    /**
+     *  Kontrolleri metodi silloin kun vuoro on vahvistettu.
+     */
     public void vuoronVahvistus() {
         CardLayout cl = (CardLayout) (getLayout());
         //vuoroPanel
         validate();
+        vuoroPanel.initComponents();
         cl.show(this, VUORO);
+    }
+
+    public UnoPeli getPeli() {
+        return peli;
     }
 
 }

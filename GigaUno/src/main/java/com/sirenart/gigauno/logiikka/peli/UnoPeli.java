@@ -12,6 +12,9 @@ import java.util.List;
 
 /**
  *
+ * UnoPeli on luokka joka kuvaa koko Uno peliä. UnoPelillä on PeliAlusta joka
+ * kuvaa nykyistä erää ja tiedot pelaajista ja onko peli kesken vai ei.
+ *
  * @author arska
  */
 public class UnoPeli {

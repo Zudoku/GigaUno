@@ -6,7 +6,7 @@
 package com.sirenart.gigauno.logiikka.kortit;
 
 /**
- * Created Nov 11, 2016
+ * Kuvastaa yhtä uno korttia. Kortilla on väri ja tyyppi.
  *
  * @author arska
  */

@@ -8,6 +8,9 @@ package com.sirenart.gigauno.logiikka.pelaaja;
 import com.sirenart.gigauno.logiikka.kortit.KorttiKasi;
 
 /**
+ * Tämä luokka kuvastaa pelajan yhden erän tietoja. Tällä luokalla on KorttiKasi
+ * jossa on tämänhetkiset kortit ja pelaajaIndeksi ja tieto siitä onko UNO
+ * huudettu vai ei.
  *
  * @author arska
  */
@@ -33,6 +36,11 @@ public class EraTiedot {
         this.kortit = kortit;
     }
 
+    /**
+     * Asettaa uno huuto tilan. Jos tila on huudettu, niin saaVoittaa laitetaan myös trueksi.
+     * 
+     * @param unoHuudettu onko pelaajan unotila huudettu vai ei
+     */
     public void setUnoHuudettu(boolean unoHuudettu) {
         this.unoHuudettu = unoHuudettu;
         if (unoHuudettu) {
@@ -52,6 +60,11 @@ public class EraTiedot {
         return kortit;
     }
 
+    /**
+     * Palauttaa true jos pelaajalla on UNO tila.
+     * 
+     * @return true jos unotila, muuten false
+     */
     public boolean onkoPelaajallaUnoTila() {
         return (kortit.getKortit().size() == 1);
     }
