@@ -57,7 +57,7 @@ public class UnoPeli {
     /**
      * Metodi jolla voi lisätä peliin yhden pelaajan. Pelaajan lisäys voi
      * epäonnistua jos pelaajien lisäysvaihe on ohi tai samanniminen pelaaja on
-     * jo olemassa tai jos nimimerkki on tyhjä.
+     * jo olemassa tai jos nimimerkki on tyhjä tai jos pelaajia on jo 6.
      *
      * @param pelaaja Pelaaja jonka haluat lisätä peliin
      * @return false jos epäonnistuu, muulloin true.
@@ -70,6 +70,9 @@ public class UnoPeli {
             if (p.getNimimerkki().equals(pelaaja.getNimimerkki())) {
                 return false;
             }
+        }
+        if (pelaajat.size() >= 6) {
+            return false;
         }
         pelaajat.add(pelaaja);
         return true;

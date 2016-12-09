@@ -41,7 +41,7 @@ public class VarmistusPanel extends JPanel {
         setLayout(new GridLayout(2, 1, 0, 0));
 
         JLabel pelaajaLabel = new JLabel("Pelaajan " + pelaajanNimi + " vuoro!");
-        Font font1 = new Font("SansSerif", Font.BOLD, 60);
+        Font font1 = new Font("SansSerif", Font.BOLD, 40);
         pelaajaLabel.setFont(font1);
         pelaajaLabel.setBorder(BorderFactory.createEmptyBorder(100, 100, 100, 100));
 

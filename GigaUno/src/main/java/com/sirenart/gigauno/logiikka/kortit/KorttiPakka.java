@@ -72,29 +72,6 @@ public class KorttiPakka {
     }
 
     /**
-     * Metodilla voi tarkistaa voiko korttia laittaa tähän korttipakkaan. Kortin
-     * voi laittaa jos väri tai tyyppi on sama tai kortti on erikoiskortti.
-     *
-     * @param kortti Kortti jonka haluat laittaa
-     * @return true jos voi laitta, muulloin false
-     */
-    public boolean voikoLaittaaKortin(Kortti kortti) {
-        if (kortti != null) {
-            Kortti ylinKortti = ylin();
-
-            if (kortti.getVari() == KorttiVari.ERIKOIS || kortti.getVari() == ylinKortti.getVari()
-                    || ylinKortti.getVari() == KorttiVari.ERIKOIS && !(ylinKortti.getTyyppi() == KorttiTyyppi.VILLI || ylinKortti.getTyyppi() == KorttiTyyppi.VILLINOSTANELJA)) {
-                //Värisääntö + erikoiskortti
-                return true;
-            } else if (kortti.getTyyppi() == ylinKortti.getTyyppi()) {
-                //Sama tyyppi sääntö
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Alustaa korttipakan annetuilla säännöillä kun halutaan tehdä nostopakka
      * peliin.
      *

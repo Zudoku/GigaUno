@@ -62,13 +62,7 @@ public class KortinLaittoTest {
 
         alusta.pelaajaLaittaaKortin(laitettuKortti);
         assertTrue(alusta.voikoPelaajaLaittaaKortin(erikoisKortti));
-        
-        laitettuKortti = new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.VILLINOSTANELJA);
-        alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(laitettuKortti);
-        alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(erikoisKortti);
-
-        alusta.pelaajaLaittaaKortin(laitettuKortti);
-        assertTrue(alusta.voikoPelaajaLaittaaKortin(erikoisKortti));
+       
     }
     
     @org.junit.Test
@@ -99,12 +93,12 @@ public class KortinLaittoTest {
         laitettuKortti = new Kortti(KorttiVari.SININEN, KorttiTyyppi.KOLME);
         alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(laitettuKortti);
         
-        assertFalse(alusta.voikoPelaajaLaittaaKortin(laitettuKortti));
+        assertTrue(alusta.voikoPelaajaLaittaaKortin(laitettuKortti));
         
         laitettuKortti = new Kortti(KorttiVari.SININEN, KorttiTyyppi.KOLME);
         alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(laitettuKortti);
         
-        assertFalse(alusta.pelaajaLaittaaKortin(laitettuKortti));
+        assertTrue(alusta.pelaajaLaittaaKortin(laitettuKortti));
     }
     
     @org.junit.Test

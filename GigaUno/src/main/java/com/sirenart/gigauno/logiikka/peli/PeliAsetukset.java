@@ -68,8 +68,6 @@ public class PeliAsetukset {
         erikoiskorttiValinnat.put(KorttiTyyppi.NOSTANELJA, Boolean.TRUE);
         erikoiskorttiValinnat.put(KorttiTyyppi.OHITUS, Boolean.TRUE);
         erikoiskorttiValinnat.put(KorttiTyyppi.SUUNNANVAIHTO, Boolean.TRUE);
-        erikoiskorttiValinnat.put(KorttiTyyppi.VILLI, Boolean.TRUE);
-        erikoiskorttiValinnat.put(KorttiTyyppi.VILLINOSTANELJA, Boolean.TRUE);
 
         return new PeliAsetukset(erikoiskorttiValinnat, 2, -1, 500);
     }

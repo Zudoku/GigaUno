@@ -38,4 +38,32 @@ public class Kortti {
         this.vari = vari;
     }
 
+    /**
+     * Metodilla voi tarkistaa voiko korttia laittaa tämän kortin päälle. Kortin
+     * voi laittaa jos väri tai tyyppi on sama tai kortti on erikoiskortti.
+     *
+     * @param kortti Kortti jonka haluat laittaa
+     * @param korttejaLaitettu  kuinka monta korttia on laitettu
+     * @return true jos voi laittaa, muulloin false
+     */
+    public boolean voikoLaittaaKortin(Kortti kortti, int korttejaLaitettu) {
+        if (korttejaLaitettu >= 5) {
+            return false;
+        }
+
+        if (kortti != null) {
+            Kortti ylinKortti = this;
+
+            if (kortti.getVari() == KorttiVari.ERIKOIS || kortti.getVari() == ylinKortti.getVari()
+                    || ylinKortti.getVari() == KorttiVari.ERIKOIS) {
+                //Värisääntö + erikoiskortti
+                return true;
+            } else if (kortti.getTyyppi() == ylinKortti.getTyyppi()) {
+                //Sama tyyppi sääntö
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

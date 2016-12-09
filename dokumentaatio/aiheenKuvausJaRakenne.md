@@ -2,7 +2,7 @@
 
 GigaUno on peli joka muistuttaa läheisesti Uno korttipeliä, mutta siihen on lisätty erilaisia sääntöjä ja kortteja, jota alkuperäisessä pelissä ole. Pelin käyttöliittymä tehdään Swingillä. Alla on kuvattu pelin kulkua. 
 
-Pelin säännöt ovat suoraan uno korttipelistä: Pelaaja joka saavuttaa pisterajan ensimmäisenä voittaa. Pelaaja saa pisteitä muiden käsissä olevista korteista kun hän pelaa viimeisimmän korttinsa pöytään. Korttien arvot on määritelty alla. Erän alussa kaikki ottavat pakasta yhden kortin joka määrittää, kuka aloittaa pelin. Samalla pöytään laitetaan yksi aloituskortti. 
+Pelin säännöt ovat suoraan uno korttipelistä: Pelaaja joka saavuttaa pisterajan ensimmäisenä voittaa. Pelaaja saa pisteitä muiden käsissä olevista korteista kun hän pelaa viimeisimmän korttinsa pöytään. Korttien arvot on määritelty alla. Erän alussa arvotaan, kuka aloittaa pelin. Samalla pöytään laitetaan yksi aloituskortti. 
 
 Kun pelaajalla on vain yksi kortti, "huutaa" hän UNO! jolloin muut pelaajat saavat varoituksen että olet voittamassa. Jos et muista huutaa UNO ja vuoro siirtyy muulle pelaajalle ja joku muu huomaa virheesi, joudut nostamaan 2 korttia. 
 
@@ -34,7 +34,6 @@ pelaajat (monta samaan aikaan)
 - Voittopiste-raja
 - Erikoiskortit (voidaan valita checkbox tyylisesti mitä kortteja halutaan peliin)
 - Korttipakan suuruus
-- Mahdollisesti lisää säädettäviä asioita
 
 ## Erikoiskortit
 
@@ -66,8 +65,6 @@ Nosta 4 | 11
 Suunnanvaihto | 11
 HurrikaaniKortti | 20
 Ohituskortti | 11
-Villikortti | 11
-Villikortti + nosta 4 | 15
 
 ## Luokkakaavio
 
@@ -82,6 +79,16 @@ Villikortti + nosta 4 | 15
 ### Vuoron loppuminen
 
 ![vuoron loppuminen](vuoronloppuminen.png  "vuoron loppuminen")
+
+## Rakennekuvaus
+
+Ohjelman logiikan rakenne mallintaa lähinnä oikeassa elämässä tapahtuvaa uno peliä. UnoPeli luokka pitää sisällään koko Uno pelin tiedot. 
+Sillä on nykyinen erä, eli PeliAlusta, jolla on nykyisen erän kaikki tiedot. Nosto ja laitto-pakat ovat KortitPakka luokkia, ja Kortti luokka kuvastaa yhtä Uno korttia.
+Pelaaja kuvastaa yhtä pelajaa ja sillä on tiedot nykyisen erän korteista ja tilanteesta. Pelaajan "unokättä" kuvastaa luokka KorttiKasi.
+Peli etenee käytännössä kutsumalla PeliAlusta luokan metodeita.
+
+Pelin käyttöliittymä on toteutettu Swingillä. PeliRunko luokka on käyttöliittymän kontrolleriluokka ja se vaihtaa ikkunan sisältöä.
+Toinen kontrolleriluokka on GamePlayPanel, joka kontrolloi peliä kun erä on kesken.
 
 
 

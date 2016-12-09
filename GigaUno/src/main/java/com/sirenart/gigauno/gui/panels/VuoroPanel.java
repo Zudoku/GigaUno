@@ -49,15 +49,46 @@ public class VuoroPanel extends JPanel {
         setPreferredSize(new Dimension(800, 800));
         setLayout(new GridLayout(3, 3, 20, 20));
         //Yläbaari
-        add(new JLabel(""));
+        Font font1 = new Font("SansSerif", Font.BOLD, 15);
+        JLabel ekaKortti = new JLabel("");
+        if (alusta.getEkaKorttiLaitettu() != null) {
+            ekaKortti = new JLabel("" + alusta.getEkaKorttiLaitettu().getTyyppi().name());
+            switch (alusta.getEkaKorttiLaitettu().getVari()) {
+                case KELTAINEN:
+                    ekaKortti.setBackground(Color.yellow);
+                    break;
+
+                case PUNAINEN:
+                    ekaKortti.setBackground(Color.red);
+                    break;
+
+                case SININEN:
+                    ekaKortti.setBackground(Color.blue);
+                    break;
+
+                case VIHREA:
+                    ekaKortti.setBackground(Color.green);
+                    break;
+
+                case ERIKOIS:
+                    ekaKortti.setBackground(Color.DARK_GRAY);
+                    break;
+            }
+            ekaKortti.setOpaque(true);
+            ekaKortti.setFont(font1);
+            ekaKortti.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        }
+
+        add(ekaKortti);
         JLabel header = new JLabel("Aika pelata vuorosi!");
 
-        Font font1 = new Font("SansSerif", Font.BOLD, 15);
         header.setFont(font1);
         header.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         add(header);
-        add(new JLabel("<html>" + "Kortteja nostopakassa: " + alusta.getNostoPakka().getKortit().size() + "</br>" + " Kortteja laittopakassa: " + alusta.getLaittoPakka().getKortit().size() + "</html>"));
+        int korttejaMahisLaittaa = 5 - alusta.getKorttejaLaitettu();
+        add(new JLabel("<html>" + "Kortteja nostopakassa: " + alusta.getNostoPakka().getKortit().size() + "</br>" + " Kortteja laittopakassa: " + alusta.getLaittoPakka().getKortit().size()
+                + " Kortteja mahdollisuus laittaa: " + korttejaMahisLaittaa + "</html>"));
 
         //Pelaajien korttimäärä ja uno bustaus napit
         JPanel players = new JPanel();

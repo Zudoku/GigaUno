@@ -34,8 +34,6 @@ public class PeliAlustaTest {
         erikoiskorttiValinnat.put(KorttiTyyppi.NOSTANELJA, Boolean.TRUE);
         erikoiskorttiValinnat.put(KorttiTyyppi.OHITUS, Boolean.TRUE);
         erikoiskorttiValinnat.put(KorttiTyyppi.SUUNNANVAIHTO, Boolean.TRUE);
-        erikoiskorttiValinnat.put(KorttiTyyppi.VILLI, Boolean.TRUE);
-        erikoiskorttiValinnat.put(KorttiTyyppi.VILLINOSTANELJA, Boolean.TRUE);
         return erikoiskorttiValinnat;
     }
 
@@ -114,8 +112,8 @@ public class PeliAlustaTest {
         PeliAlusta alusta = new PeliAlusta(pelaajat, erikoiskorttiValinnat, 1);
         alusta.aloitaEra();
 
-        alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.VILLI));
-        Kortti laitettuKortti = new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.VILLI);
+        alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.NOSTAKAKSI));
+        Kortti laitettuKortti = new Kortti(KorttiVari.ERIKOIS, KorttiTyyppi.NOSTAKAKSI);
         alusta.nykyinenPelaaja().getEraTiedot().getKortit().lisaa(laitettuKortti);
         alusta.pelaajaLaittaaKortin(laitettuKortti);
         //Varmistetaan että vuoron voi vaihtaa laitettuaan kortin pöytään

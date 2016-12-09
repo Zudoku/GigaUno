@@ -16,9 +16,7 @@ public enum KorttiTyyppi {
     NOSTANELJA(11, 2),
     SUUNNANVAIHTO(11, 2),
     HURRIKAANI(20, 1),
-    OHITUS(11, 2),
-    VILLI(11, 2),
-    VILLINOSTANELJA(15, 2);
+    OHITUS(11, 2);
 
     /**
      * Kuvastaa kortin tyyppiä.

@@ -22,7 +22,7 @@ import java.util.Random;
  */
 public class PeliAlusta {
 
-    public static final int ALOITUS_KORTTI_MAARA = 6;
+    public static final int ALOITUS_KORTTI_MAARA = 12;
     private final Random random = new Random();
 
     private boolean kaanteinenKierros = false; //Jos true, pelin suunta on päinvastainen
@@ -39,6 +39,9 @@ public class PeliAlusta {
 
     private Pelaaja voittaja = null; // Kertoo voittajan kun erä on loppu, null jos erä ei ole loppu
     private boolean eraLoppu = false; // Kertoo onko erä loppunut
+
+    private Kortti ekaKorttiLaitettu = null;
+    private int korttejaLaitettu = 0;
 
     /**
      * Kuvastaa UNO erää. Pelialusta on controlleri ja sillä on tiedot kaikesta
@@ -141,8 +144,7 @@ public class PeliAlusta {
     }
 
     /**
-     * Palauttaa seuraavan pelaajan. 
-     * (seuraava pelaaja = kun vuoro vaihtuu)
+     * Palauttaa seuraavan pelaajan. (seuraava pelaaja = kun vuoro vaihtuu)
      *
      * @return seuraava pelaajan kenen vuoro tulee olemaan
      */
@@ -168,13 +170,17 @@ public class PeliAlusta {
      * Nykyinen pelaaja haluaa laittaa kortin. palauttaa boolean arvon siitä,
      * onnistuiko kortin laitto vai ei. Samalla poistaa kortin hänen kädestään
      *
-     * @param kortti  kortti jonka pelaaja haluaa laittaa
+     * @param kortti kortti jonka pelaaja haluaa laittaa
      * @return onnistuiko kortin laitto vai ei
      */
     public boolean pelaajaLaittaaKortin(Kortti kortti) {
         if (voikoPelaajaLaittaaKortin(kortti)) {
             laittoPakka.lisaa(kortti);
             nykyinenPelaaja().getEraTiedot().getKortit().getKortit().remove(kortti);
+            if (ekaKorttiLaitettu == null) {
+                ekaKorttiLaitettu = kortti;
+            }
+            korttejaLaitettu++;
             pelaajaSaaLopettaaVuoron = true;
             if (kortti.getVari() == KorttiVari.ERIKOIS) {
                 pelaajaPelaaErikoisKortin(kortti);
@@ -211,7 +217,14 @@ public class PeliAlusta {
     private void pelaajaPelaaErikoisKortin(Kortti kortti) {
         switch (kortti.getTyyppi()) {
             case HURRIKAANI:
-
+                for (Pelaaja p : pelaajat) {
+                    Random r = new Random();
+                    int index = r.nextInt(pelaajat.size());
+                    KorttiKasi vanha = p.getEraTiedot().getKortit();
+                    Pelaaja toinen = pelaajat.get(index);
+                    p.getEraTiedot().setKortit(toinen.getEraTiedot().getKortit());
+                    toinen.getEraTiedot().setKortit(vanha);
+                }
                 break;
 
             case NOSTAKAKSI:
@@ -236,14 +249,6 @@ public class PeliAlusta {
                 kaanteinenKierros = !kaanteinenKierros;
                 break;
 
-            case VILLI:
-
-                break;
-
-            case VILLINOSTANELJA:
-
-                break;
-
             default:
 
                 break;
@@ -258,7 +263,12 @@ public class PeliAlusta {
      * @return true jos voi, muulloin false
      */
     public boolean voikoPelaajaLaittaaKortin(Kortti kortti) {
-        return laittoPakka.voikoLaittaaKortin(kortti) && nykyinenPelaaja().getEraTiedot().getKortit().getKortit().contains(kortti);
+        if (getEkaKorttiLaitettu() != null) {
+            return getEkaKorttiLaitettu().voikoLaittaaKortin(kortti, korttejaLaitettu) && nykyinenPelaaja().getEraTiedot().getKortit().getKortit().contains(kortti);
+        } else {
+            return laittoPakka.ylin().voikoLaittaaKortin(kortti, korttejaLaitettu) && nykyinenPelaaja().getEraTiedot().getKortit().getKortit().contains(kortti);
+        }
+
     }
 
     /**
@@ -280,7 +290,7 @@ public class PeliAlusta {
     /**
      * Pelaaja yrittää lopettaa vuoron Palauttaa boolean arvon joka merkitsee
      * sitä, oliko vuoron lopettaminen onnistuminen vai ei.
-     * 
+     *
      * @return true jos onnistuu, false jos ei
      */
     public boolean pelaajaLopettaaVuoron() {
@@ -307,6 +317,8 @@ public class PeliAlusta {
             } else if (nykyinenPelaaja().getEraTiedot().isSaaVoittaa()) {
                 nykyinenPelaaja().getEraTiedot().setSaaVoittaa(false);
             }
+            korttejaLaitettu = 0;
+            ekaKorttiLaitettu = null;
             return true;
 
         }
@@ -315,6 +327,7 @@ public class PeliAlusta {
 
     /**
      * Pelaaja haluaa huutaa uno. palauttaa true jos huuto onnistuu
+     *
      * @return true jos onnistuu, false jos ei
      */
     public boolean pelaajaHuutaaUno() {
@@ -328,7 +341,7 @@ public class PeliAlusta {
     /**
      * Pelaaja yrittää paljastaa unon parametrinä annetulle pelajalle. Palauttaa
      * true jos palajastus onnistuu.
-     * 
+     *
      * @param pelaaja pelaaja kenet nykyinen pelaaja paljastaa
      * @return true jos onnistuu, false jos ei
      */
@@ -349,7 +362,7 @@ public class PeliAlusta {
 
     /**
      * Laskee pisteet erän lopussa Palauttaa voittajan ansaitsemat pisteet.
-     * 
+     *
      * @return ansaitut pisteet
      */
     public int laskePisteet() {
@@ -394,6 +407,14 @@ public class PeliAlusta {
 
     public boolean isPelaajaSaaLopettaaVuoron() {
         return pelaajaSaaLopettaaVuoron;
+    }
+
+    public Kortti getEkaKorttiLaitettu() {
+        return ekaKorttiLaitettu;
+    }
+
+    public int getKorttejaLaitettu() {
+        return korttejaLaitettu;
     }
 
 }

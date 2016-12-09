@@ -54,9 +54,18 @@ public class PelaajienLisaysPanel extends JPanel {
             if (i < peli.getPelaajat().size()) {
                 JLabel label = new JLabel();
                 label.setText(peli.getPelaajat().get(i).getNimimerkki());
+                final int index = i;
                 label.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
                 add(label);
-                add(new JButton("poista"));
+                JButton poistaButton = new JButton("poista");
+                poistaButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        peli.getPelaajat().remove(index);
+                        rakennaUusiksiPelaajat();
+                    }
+                });
+                add(poistaButton);
             } else {
                 JLabel uusiPelaajaLabel = new JLabel("<uusi pelaaja?>");
                 uusiPelaajaLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

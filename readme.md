@@ -11,8 +11,10 @@ Peli on tehty Javalla ja siihen tulee yksinkertainen käyttöliittymä Swingill�
 
 [Tuntipäiväkirja](dokumentaatio/tuntikirjanpito.md)
 
+[Käyttöohje](dokumentaatio/käyttöohjeet.md)
+
 [CheckStyle raportti](https://htmlpreview.github.io/?https://github.com/Zudoku/GigaUno/blob/master/dokumentaatio/checkstyle/checkstyle.html)
 
 [PIT raportti](https://htmlpreview.github.io/?https://github.com/Zudoku/GigaUno/blob/master/dokumentaatio/pit/index.html)
 
-[JavaDoc] (https://htmlpreview.github.io/?https://github.com/Zudoku/GigaUno/blob/master/dokumentaatio/javadoc/index.html)
+[JavaDoc] (https://htmlpreview.github.io/?https://github.com/Zudoku/GigaUno/blob/master/javadoc/index.html)

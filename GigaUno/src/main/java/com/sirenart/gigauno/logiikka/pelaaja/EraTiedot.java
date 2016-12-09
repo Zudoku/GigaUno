@@ -77,4 +77,9 @@ public class EraTiedot {
         return saaVoittaa;
     }
 
+    public void setKortit(KorttiKasi kortit) {
+        this.kortit = kortit;
+    }
+
+    
 }

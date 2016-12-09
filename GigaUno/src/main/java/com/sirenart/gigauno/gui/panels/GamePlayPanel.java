@@ -22,10 +22,12 @@ public class GamePlayPanel extends JPanel {
     public static final String ERATIEDOT = "ERATIEDOT";
     public static final String VARMISTUS = "VARMISTUS";
     public static final String VUORO = "VUORO";
+    public static final String VOITTO = "VOITTO";
 
     private VuoroPanel vuoroPanel;
     private EraTiedotPanel eraTiedotPanel;
     private VarmistusPanel varmistusPanel;
+    private VoittoPanel voittoPanel;
 
     /**
      * Kontrolleri joka ohjaa pelin kulkua kun peli on käynnissä.
@@ -44,6 +46,7 @@ public class GamePlayPanel extends JPanel {
         vuoroPanel = new VuoroPanel(this);
         eraTiedotPanel = new EraTiedotPanel(this);
         varmistusPanel = new VarmistusPanel(this);
+        voittoPanel = new VoittoPanel();
 
         removeAll();
         setPreferredSize(new Dimension(800, 800));
@@ -74,6 +77,10 @@ public class GamePlayPanel extends JPanel {
     public void vuoroOhi() {
         CardLayout cl = (CardLayout) (getLayout());
         if (peli.getNykyinenEra().isEraLoppu()) {
+            if (peli.isVoittajaLoytynyt()) {
+                voittoPanel.initializeComponents(peli.getVoittaja().getNimimerkki());
+                cl.show(this, VOITTO);
+            }
             eraTiedotPanel.paivita(peli);
 
             validate();
