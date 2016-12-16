@@ -8,6 +8,8 @@ package com.sirenart.gigauno.gui.panels;
 import com.sirenart.gigauno.logiikka.peli.UnoPeli;
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JPanel;
 
 /**
@@ -29,6 +31,10 @@ public class GamePlayPanel extends JPanel {
     private VarmistusPanel varmistusPanel;
     private VoittoPanel voittoPanel;
 
+    private Timer timer;
+
+    private String currentScreen = "";
+
     /**
      * Kontrolleri joka ohjaa pelin kulkua kun peli on käynnissä.
      *
@@ -40,6 +46,18 @@ public class GamePlayPanel extends JPanel {
         initComponents();
         CardLayout cl = (CardLayout) (getLayout());
         cl.show(this, ERATIEDOT);
+        currentScreen = ERATIEDOT;
+        this.timer = new Timer();
+        if (this.peli.getPeliAsetukset().getAikaRajoitus() > 0) {
+            this.timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    if (currentScreen.equals(VUORO)) {
+                        vuoroPanel.setKulunut(vuoroPanel.getKulunut() + 1);
+                    }
+                }
+            }, 0, 1000);
+        }
     }
 
     private void initComponents() {
@@ -55,12 +73,14 @@ public class GamePlayPanel extends JPanel {
         add(vuoroPanel, VUORO);
         add(eraTiedotPanel, ERATIEDOT);
         add(varmistusPanel, VARMISTUS);
+        add(voittoPanel, VOITTO);
 
         eraTiedotPanel.paivita(peli);
 
         validate();
 
     }
+
     /**
      * Kontrolleri metodi silloin kun halutaan aloittaa uusi erä.
      */
@@ -70,30 +90,38 @@ public class GamePlayPanel extends JPanel {
         CardLayout cl = (CardLayout) (getLayout());
         varmistusPanel.initializeComponents(peli.getNykyinenEra().nykyinenPelaaja().getNimimerkki());
         cl.show(this, VARMISTUS);
+        currentScreen = VARMISTUS;
     }
+
     /**
-     *  Kontrolleri metodi silloin kun vuoro on lopetettu.
+     * Kontrolleri metodi silloin kun vuoro on lopetettu.
      */
     public void vuoroOhi() {
         CardLayout cl = (CardLayout) (getLayout());
+        vuoroPanel.setKulunut(0);
         if (peli.getNykyinenEra().isEraLoppu()) {
-            if (peli.isVoittajaLoytynyt()) {
+            if (peli.peliOhi()) {
                 voittoPanel.initializeComponents(peli.getVoittaja().getNimimerkki());
                 cl.show(this, VOITTO);
+                currentScreen = VOITTO;
+                return;
             }
             eraTiedotPanel.paivita(peli);
 
             validate();
             cl.show(this, ERATIEDOT);
+            currentScreen = ERATIEDOT;
         } else {
             varmistusPanel.initializeComponents(peli.getNykyinenEra().nykyinenPelaaja().getNimimerkki());
             validate();
             cl.show(this, VARMISTUS);
+            currentScreen = VARMISTUS;
         }
 
     }
+
     /**
-     *  Kontrolleri metodi silloin kun vuoro on vahvistettu.
+     * Kontrolleri metodi silloin kun vuoro on vahvistettu.
      */
     public void vuoronVahvistus() {
         CardLayout cl = (CardLayout) (getLayout());
@@ -101,6 +129,7 @@ public class GamePlayPanel extends JPanel {
         validate();
         vuoroPanel.initComponents();
         cl.show(this, VUORO);
+        currentScreen = VUORO;
     }
 
     public UnoPeli getPeli() {

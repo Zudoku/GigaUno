@@ -49,7 +49,7 @@ public class PelisaantoPanel extends JPanel {
     private void initComponents() {
         removeAll();
         setPreferredSize(new Dimension(800, 800));
-        setLayout(new GridLayout(9, 2, 10, 30));
+        setLayout(new GridLayout(8, 2, 10, 30));
 
         Font font1 = new Font("SansSerif", Font.BOLD, 35);
 
@@ -79,7 +79,7 @@ public class PelisaantoPanel extends JPanel {
         JLabel aikarajaLabel = new JLabel("Pelin vuoroaikaraja:  -1 = ei rajaa | 60 = 1 minuutti");
         aikarajaLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(aikarajaLabel);
-        JSpinner aikaraja = new JSpinner(new SpinnerNumberModel(peliAsetukset.getAikaRajoitus(), -1, 60, 1));
+        JSpinner aikaraja = new JSpinner(new SpinnerNumberModel((int) peliAsetukset.getAikaRajoitus(), -1, 60, 3));
         aikaraja.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent ce) {
@@ -107,11 +107,11 @@ public class PelisaantoPanel extends JPanel {
         JLabel voittorajaLabel = new JLabel("Pelin voittoraja: ");
         voittorajaLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         add(voittorajaLabel);
-        JSpinner voittoraja = new JSpinner(new SpinnerNumberModel(peliAsetukset.getVoittoRaja(), 100, 800, 50));
+        JSpinner voittoraja = new JSpinner(new SpinnerNumberModel(peliAsetukset.getVoittoRaja(), 50, 800, 50));
         voittoraja.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent ce) {
-                korttikerroinToggle((int) voittoraja.getModel().getValue());
+                pisterajaToggle((int) voittoraja.getModel().getValue());
             }
 
         });

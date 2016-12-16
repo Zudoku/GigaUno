@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.util.List;
+import java.util.Timer;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -24,6 +25,9 @@ public class VuoroPanel extends JPanel {
 
     private GamePlayPanel parentPanel;
     private PeliAlusta alusta;
+    private int kulunut = 0;
+    private int paivitettuKulunut = 0;
+    private boolean paivitetaan = false;
 
     /**
      * Graafinen käyttöliittymä itse vuoron pelaamiseen. Pelaaja voi laittaa
@@ -34,6 +38,31 @@ public class VuoroPanel extends JPanel {
     public VuoroPanel(GamePlayPanel parentPanel) {
         this.parentPanel = parentPanel;
         initComponents();
+
+    }
+
+    /**
+     * Laittaa kulunut arvon.
+     * Jos aikarajoitus on päällä ja GUI:n voi päivittää, niin päivitetään GUI.
+     * @param kulunut sekunteja vuoroa kulunut
+     */
+    public void setKulunut(int kulunut) {
+        this.kulunut = kulunut;
+        if (kulunut > parentPanel.getPeli().getPeliAsetukset().getAikaRajoitus()) {
+            alusta.pelaajaNostaaKortin();
+            if (alusta.pelaajaLopettaaVuoron()) {
+                parentPanel.vuoroOhi();
+            } else {
+                initComponents();
+            }
+        } else if (this.kulunut != paivitettuKulunut && !paivitetaan) {
+            initComponents();
+
+        }
+    }
+
+    public int getKulunut() {
+        return kulunut;
     }
 
     /**
@@ -44,6 +73,7 @@ public class VuoroPanel extends JPanel {
         if (alusta == null) {
             return;
         }
+        paivitetaan = true;
         removeAll();
         invalidate();
         setPreferredSize(new Dimension(800, 800));
@@ -55,23 +85,23 @@ public class VuoroPanel extends JPanel {
             ekaKortti = new JLabel("" + alusta.getEkaKorttiLaitettu().getTyyppi().name());
             switch (alusta.getEkaKorttiLaitettu().getVari()) {
                 case KELTAINEN:
-                    ekaKortti.setBackground(Color.yellow);
+                    ekaKortti.setBackground(new Color(247, 241, 126));
                     break;
 
                 case PUNAINEN:
-                    ekaKortti.setBackground(Color.red);
+                    ekaKortti.setBackground(new Color(247, 126, 126));
                     break;
 
                 case SININEN:
-                    ekaKortti.setBackground(Color.blue);
+                    ekaKortti.setBackground(new Color(126, 166, 247));
                     break;
 
                 case VIHREA:
-                    ekaKortti.setBackground(Color.green);
+                    ekaKortti.setBackground(new Color(126, 247, 136));
                     break;
 
                 case ERIKOIS:
-                    ekaKortti.setBackground(Color.DARK_GRAY);
+                    ekaKortti.setBackground(Color.LIGHT_GRAY);
                     break;
             }
             ekaKortti.setOpaque(true);
@@ -87,8 +117,15 @@ public class VuoroPanel extends JPanel {
 
         add(header);
         int korttejaMahisLaittaa = 5 - alusta.getKorttejaLaitettu();
-        add(new JLabel("<html>" + "Kortteja nostopakassa: " + alusta.getNostoPakka().getKortit().size() + "</br>" + " Kortteja laittopakassa: " + alusta.getLaittoPakka().getKortit().size()
-                + " Kortteja mahdollisuus laittaa: " + korttejaMahisLaittaa + "</html>"));
+        String tietoString = "<html>" + "Kortteja nostopakassa: " + alusta.getNostoPakka().getKortit().size() + "</br>" + " Kortteja laittopakassa: " + alusta.getLaittoPakka().getKortit().size()
+                + " Kortteja mahdollisuus laittaa: " + korttejaMahisLaittaa;
+        if (parentPanel.getPeli().getPeliAsetukset().getAikaRajoitus() > 0) {
+            tietoString += (" Vuoroa jäljellä: " + (parentPanel.getPeli().getPeliAsetukset().getAikaRajoitus() - kulunut));
+            paivitettuKulunut = this.kulunut;
+        }
+        tietoString += "</html>";
+
+        add(new JLabel(tietoString));
 
         //Pelaajien korttimäärä ja uno bustaus napit
         JPanel players = new JPanel();
@@ -111,7 +148,9 @@ public class VuoroPanel extends JPanel {
                 JButton bustaa = new JButton("Paljasta");
                 bustaa.addActionListener((ActionEvent ae) -> {
                     alusta.pelajaPaljastaaUnon(p);
-                    initComponents();
+                    if (!paivitetaan) {
+                        initComponents();
+                    }
                 });
                 players.add(bustaa);
             }
@@ -125,23 +164,23 @@ public class VuoroPanel extends JPanel {
         nykyinen.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         switch (ylin.getVari()) {
             case KELTAINEN:
-                nykyinen.setBackground(Color.yellow);
+                nykyinen.setBackground(new Color(247, 241, 126));
                 break;
 
             case PUNAINEN:
-                nykyinen.setBackground(Color.red);
+                nykyinen.setBackground(new Color(247, 126, 126));
                 break;
 
             case SININEN:
-                nykyinen.setBackground(Color.blue);
+                nykyinen.setBackground(new Color(126, 166, 247));
                 break;
 
             case VIHREA:
-                nykyinen.setBackground(Color.green);
+                nykyinen.setBackground(new Color(126, 247, 136));
                 break;
 
             case ERIKOIS:
-                nykyinen.setBackground(Color.DARK_GRAY);
+                nykyinen.setBackground(Color.LIGHT_GRAY);
                 break;
         }
         nykyinen.setOpaque(true);
@@ -157,23 +196,23 @@ public class VuoroPanel extends JPanel {
             korttinimi.setOpaque(true);
             switch (p.getVari()) {
                 case KELTAINEN:
-                    korttinimi.setBackground(Color.yellow);
+                    korttinimi.setBackground(new Color(247, 241, 126));
                     break;
 
                 case PUNAINEN:
-                    korttinimi.setBackground(Color.red);
+                    korttinimi.setBackground(new Color(247, 126, 126));
                     break;
 
                 case SININEN:
-                    korttinimi.setBackground(Color.blue);
+                    korttinimi.setBackground(new Color(126, 166, 247));
                     break;
 
                 case VIHREA:
-                    korttinimi.setBackground(Color.green);
+                    korttinimi.setBackground(new Color(126, 247, 136));
                     break;
 
                 case ERIKOIS:
-                    korttinimi.setBackground(Color.DARK_GRAY);
+                    korttinimi.setBackground(Color.LIGHT_GRAY);
                     break;
             }
 
@@ -183,7 +222,10 @@ public class VuoroPanel extends JPanel {
             JButton laita = new JButton("laita");
             laita.addActionListener((ActionEvent ae) -> {
                 alusta.pelaajaLaittaaKortin(p);
-                initComponents();
+                if (!paivitetaan) {
+                    initComponents();
+                }
+
             });
             cards.add(laita);
         }
@@ -197,7 +239,7 @@ public class VuoroPanel extends JPanel {
             alusta.pelaajaHuutaaUno();
             if (alusta.pelaajaLopettaaVuoron()) {
                 parentPanel.vuoroOhi();
-            } else {
+            } else if (!paivitetaan) {
                 initComponents();
             }
         });
@@ -208,7 +250,7 @@ public class VuoroPanel extends JPanel {
             alusta.pelaajaNostaaKortin();
             if (alusta.pelaajaLopettaaVuoron()) {
                 parentPanel.vuoroOhi();
-            } else {
+            } else if (!paivitetaan) {
                 initComponents();
             }
 
@@ -228,6 +270,7 @@ public class VuoroPanel extends JPanel {
         add(lopetaVuoro);
 
         validate();
+        paivitetaan = false;
     }
 
 }

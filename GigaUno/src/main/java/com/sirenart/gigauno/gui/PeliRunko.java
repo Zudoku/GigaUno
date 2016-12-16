@@ -41,7 +41,7 @@ public class PeliRunko extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gigauno (HUOM! PELIN GRAAFINEN KÄYTTÖLIITTYMÄ ON VIELÄ PAHASTI OSITTAIN KESKEN)");
+        setTitle("Gigauno");
         setSize(800, 800);
 
         pelaajienLisaysPanel = new PelaajienLisaysPanel(peli);

@@ -1,8 +1,8 @@
 # Aihe: GigaUno
 
-GigaUno on peli joka muistuttaa läheisesti Uno korttipeliä, mutta siihen on lisätty erilaisia sääntöjä ja kortteja, jota alkuperäisessä pelissä ole. Pelin käyttöliittymä tehdään Swingillä. Alla on kuvattu pelin kulkua. 
+GigaUno on peli joka muistuttaa läheisesti Uno korttipeliä, mutta siihen on muokattu erilaisia sääntöjä ja kortteja, jota alkuperäisessä pelissä ole. Pelin käyttöliittymä tehdään Swingillä. Alla on kuvattu pelin kulkua. 
 
-Pelin säännöt ovat suoraan uno korttipelistä: Pelaaja joka saavuttaa pisterajan ensimmäisenä voittaa. Pelaaja saa pisteitä muiden käsissä olevista korteista kun hän pelaa viimeisimmän korttinsa pöytään. Korttien arvot on määritelty alla. Erän alussa arvotaan, kuka aloittaa pelin. Samalla pöytään laitetaan yksi aloituskortti. 
+Pelin säännöt ovat melkein suoraan uno korttipelistä: Pelaaja joka saavuttaa pisterajan ensimmäisenä voittaa. Pelaaja saa pisteitä muiden käsissä olevista korteista kun hän pelaa viimeisimmän korttinsa pöytään. Korttien arvot on määritelty alla. Erän alussa arvotaan, kuka aloittaa pelin. Samalla pöytään laitetaan yksi aloituskortti. 
 
 Kun pelaajalla on vain yksi kortti, "huutaa" hän UNO! jolloin muut pelaajat saavat varoituksen että olet voittamassa. Jos et muista huutaa UNO ja vuoro siirtyy muulle pelaajalle ja joku muu huomaa virheesi, joudut nostamaan 2 korttia. 
 
@@ -42,11 +42,8 @@ pelaajat (monta samaan aikaan)
 - Suunnanvaihtokortti
 - Hurrikaanikortti
 - Ohituskortti
-- Villikortti
-- Villikortti + nosta 4 
-- Mahdollisesti muita erikoiskortteja
 
-## Korttien arvot: (alustava)
+## Korttien arvot:
 
 kortti | arvo pelin lopussa
 -------------------- | ------

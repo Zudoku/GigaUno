@@ -57,7 +57,7 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> initComponents() {
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>          removeAll();
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>          setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(800, 800));
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          setLayout(<strong class="jxr_keyword">new</strong> GridLayout(9, 2, 10, 30));
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          setLayout(<strong class="jxr_keyword">new</strong> GridLayout(8, 2, 10, 30));
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>          Font font1 = <strong class="jxr_keyword">new</strong> Font(<span class="jxr_string">"SansSerif"</span>, Font.BOLD, 35);
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  
@@ -87,7 +87,7 @@
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>          JLabel aikarajaLabel = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Pelin vuoroaikaraja:  -1 = ei rajaa | 60 = 1 minuutti"</span>);
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>          aikarajaLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>          add(aikarajaLabel);
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          JSpinner aikaraja = <strong class="jxr_keyword">new</strong> JSpinner(<strong class="jxr_keyword">new</strong> SpinnerNumberModel(peliAsetukset.getAikaRajoitus(), -1, 60, 1));
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          JSpinner aikaraja = <strong class="jxr_keyword">new</strong> JSpinner(<strong class="jxr_keyword">new</strong> SpinnerNumberModel((<strong class="jxr_keyword">int</strong>) peliAsetukset.getAikaRajoitus(), -1, 60, 3));
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>          aikaraja.addChangeListener(<strong class="jxr_keyword">new</strong> ChangeListener() {
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>              @Override
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> stateChanged(ChangeEvent ce) {
@@ -115,11 +115,11 @@
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>         JLabel voittorajaLabel = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Pelin voittoraja: "</span>);
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>         voittorajaLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>         add(voittorajaLabel);
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>         JSpinner voittoraja = <strong class="jxr_keyword">new</strong> JSpinner(<strong class="jxr_keyword">new</strong> SpinnerNumberModel(peliAsetukset.getVoittoRaja(), 100, 800, 50));
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>         JSpinner voittoraja = <strong class="jxr_keyword">new</strong> JSpinner(<strong class="jxr_keyword">new</strong> SpinnerNumberModel(peliAsetukset.getVoittoRaja(), 50, 800, 50));
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>         voittoraja.addChangeListener(<strong class="jxr_keyword">new</strong> ChangeListener() {
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>             @Override
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>             <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> stateChanged(ChangeEvent ce) {
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>                 korttikerroinToggle((<strong class="jxr_keyword">int</strong>) voittoraja.getModel().getValue());
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>                 pisterajaToggle((<strong class="jxr_keyword">int</strong>) voittoraja.getModel().getValue());
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>             }
 <a class="jxr_linenumber" name="L116" href="#L116">116</a> 
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>         });

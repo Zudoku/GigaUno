@@ -11,4 +11,4 @@ Päivä | Tunnit | Kuvaus
 24.11.2016 | 2.5h | Testien kirjoittaminen
 2.12.2016  | 7.0h | Graafisen käyttöliittymän tekeminen, Javadocsin korjaus, Sekvenssikaavioiden teko
 9.12.2016  | 5.0h | Dokumentaation kirjoittaminen, pientä hienosäätöä
-
+16.12.2016  | 3.0h | Viimeistelyä, esim vuoroajan implementointi. Dokumentaation päivitys.

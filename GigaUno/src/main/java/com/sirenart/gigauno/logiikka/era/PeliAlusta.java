@@ -208,6 +208,9 @@ public class PeliAlusta {
                 }
             }
         }
+        if (nostoPakka.getKortit().isEmpty()) {
+            eraLoppu = true;
+        }
     }
 
     /**
